@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Orders.Backend\PGCELL.Backend.csproj" />
-    <ProjectReference Include="..\Orders.Shared\PGCELL.Shared.csproj" />
+    <ProjectReference Include="..\PGCELL.Backend\PGCELL.Backend.csproj" />
+    <ProjectReference Include="..\PGCELL.Frontend\PGCELL.Frontend.csproj" />
   </ItemGroup>
 
 </Project>

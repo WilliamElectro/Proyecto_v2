@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Orders.Shared\PGCELL.Shared.csproj" />
+    <ProjectReference Include="..\PGCELL.Shared\PGCELL.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
