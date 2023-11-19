@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
-using Orders.Frontend;
-using Orders.Frontend.AuthenticationProviders;
-using Orders.Frontend.Repositories;
-using Orders.Frontend.Services;
+using PGCELL.Frontend;
+using PGCELL.Frontend.AuthenticationProviders;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Frontend.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

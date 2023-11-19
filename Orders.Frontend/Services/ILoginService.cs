@@ -1,4 +1,4 @@
-﻿namespace Orders.Frontend.Services
+﻿namespace PGCELL.Frontend.Services
 {
     public interface ILoginService
     {

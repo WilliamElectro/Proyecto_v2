@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Orders.Shared.Enums;
+using PGCELL.Shared.Enums;
 
-namespace Orders.Shared.Entites
+namespace PGCELL.Shared.Entites
 {
     public class Order
     {

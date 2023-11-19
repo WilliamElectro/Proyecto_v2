@@ -3,9 +3,9 @@ using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using Moq.Protected;
-using Orders.Backend.Services;
+using PGCELL.Backend.Services;
 
-namespace Orders.Tests.Services
+namespace PGCELL.Tests.Services
 {
     [TestClass]
     public class ApiServiceTests

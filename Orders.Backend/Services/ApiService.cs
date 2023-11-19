@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
-using Orders.Shared.Responses;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Services
+namespace PGCELL.Backend.Services
 {
     public class ApiService : IApiService
     {

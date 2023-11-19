@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Orders.Backend.Data;
-using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Tests.Shared;
+using PGCELL.Backend.Data;
+using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Tests.Shared;
 
-namespace Orders.Tests.Repositories
+namespace PGCELL.Tests.Repositories
 {
     [TestClass]
     public class GenericRepositoryTests

@@ -1,8 +1,8 @@
-﻿using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Responses;
+﻿using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.UnitsOfWork
+namespace PGCELL.Backend.UnitsOfWork
 {
     public class GenericUnitOfWork<T> : IGenericUnitOfWork<T> where T : class
     {

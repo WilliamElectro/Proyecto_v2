@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Routing;
-using Orders.Shared.Entites;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Frontend.Pages.Countries
+namespace PGCELL.Frontend.Pages.Countries
 {
     public partial class CountryForm
     {

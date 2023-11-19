@@ -2,10 +2,10 @@
 using Blazored.Modal;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
-using Orders.Shared.DTOs;
-using Orders.Frontend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Frontend.Repositories;
 
-namespace Orders.Frontend.Pages.Auth
+namespace PGCELL.Frontend.Pages.Auth
 {
     public partial class ChangePassword
     {

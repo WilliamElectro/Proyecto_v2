@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Orders.Frontend.Repositories
+namespace PGCELL.Frontend.Repositories
 {
     public class HttpResponseWrapper<T>
     {

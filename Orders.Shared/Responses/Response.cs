@@ -1,4 +1,4 @@
-﻿namespace Orders.Shared.Responses
+﻿namespace PGCELL.Shared.Responses
 {
     public class Response<T>
     {

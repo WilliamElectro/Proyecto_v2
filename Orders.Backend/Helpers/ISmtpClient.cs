@@ -1,6 +1,6 @@
 ﻿using MimeKit;
 
-namespace Orders.Backend.Helpers
+namespace PGCELL.Backend.Helpers
 {
     public interface ISmtpClient
     {

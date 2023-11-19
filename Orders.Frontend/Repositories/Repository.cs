@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json;
 
-namespace Orders.Frontend.Repositories
+namespace PGCELL.Frontend.Repositories
 {
     public class Repository : IRepository
     {

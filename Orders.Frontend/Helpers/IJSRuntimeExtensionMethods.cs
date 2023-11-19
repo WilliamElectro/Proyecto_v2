@@ -1,6 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
-namespace Orders.Frontend.Helpers
+namespace PGCELL.Frontend.Helpers
 {
     public static class IJSRuntimeExtensionMethods
     {

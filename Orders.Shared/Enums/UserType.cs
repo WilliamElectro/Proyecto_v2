@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Orders.Shared.Enums
+namespace PGCELL.Shared.Enums
 {
     public enum UserType
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace Orders.Shared.Entites
+namespace PGCELL.Shared.Entites
 {
     public class Product
     {

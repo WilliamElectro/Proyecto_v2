@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Orders.Backend.UnitsOfWork;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
+using PGCELL.Backend.UnitsOfWork;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Backend.Controllers
+namespace PGCELL.Backend.Controllers
 {
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

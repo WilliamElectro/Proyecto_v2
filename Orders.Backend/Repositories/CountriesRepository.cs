@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Orders.Backend.Data;
-using Orders.Backend.Helpers;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Data;
+using PGCELL.Backend.Helpers;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Repositories
+namespace PGCELL.Backend.Repositories
 {
     public class CountriesRepository : GenericRepository<Country>, ICountriesRepository
     {

@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Orders.Backend.Data;
+using PGCELL.Backend.Data;
 
 #nullable disable
 
-namespace Orders.Backend.Migrations
+namespace PGCELL.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20231023214245_InitialDb")]
@@ -24,7 +24,7 @@ namespace Orders.Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Orders.Shared.Entites.Country", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

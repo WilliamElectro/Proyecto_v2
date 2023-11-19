@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Orders.Backend.Data;
-using Orders.Backend.Helpers;
-using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Tests.Shared;
+using PGCELL.Backend.Data;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Tests.Shared;
 
-namespace Orders.Tests.Repositories
+namespace PGCELL.Tests.Repositories
 {
     [TestClass]
     public class ProductsRepositoryTests

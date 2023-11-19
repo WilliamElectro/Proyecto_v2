@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Orders.Backend.Data;
+using PGCELL.Backend.Data;
 
 #nullable disable
 
-namespace Orders.Backend.Migrations
+namespace PGCELL.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20231024194428_AddCategories")]
@@ -24,7 +24,7 @@ namespace Orders.Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Orders.Shared.Entites.Category", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Country", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

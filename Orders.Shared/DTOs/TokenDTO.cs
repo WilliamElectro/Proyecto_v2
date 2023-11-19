@@ -1,4 +1,4 @@
-﻿namespace Orders.Shared.DTOs
+﻿namespace PGCELL.Shared.DTOs
 {
     public class TokenDTO
     {

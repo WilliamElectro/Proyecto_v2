@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Orders.Backend.UnitsOfWork;
-using Orders.Shared.DTOs;
+using PGCELL.Backend.UnitsOfWork;
+using PGCELL.Shared.DTOs;
 
-namespace Orders.Backend.Controllers
+namespace PGCELL.Backend.Controllers
 {
     public class GenericController<T> : Controller where T : class
     {

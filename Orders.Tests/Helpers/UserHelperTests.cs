@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
-using Orders.Backend.Helpers;
-using Orders.Backend.UnitsOfWork;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.UnitsOfWork;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Responses;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
-namespace Orders.Tests.Helpers
+namespace PGCELL.Tests.Helpers
 {
     [TestClass]
     public class UserHelperTests

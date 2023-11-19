@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace Orders.Shared.DTOs
+namespace PGCELL.Shared.DTOs
 {
     public class ProductDTO
     {

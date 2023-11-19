@@ -1,6 +1,6 @@
-﻿using Orders.Shared.DTOs;
+﻿using PGCELL.Shared.DTOs;
 
-namespace Orders.Backend.Helpers
+namespace PGCELL.Backend.Helpers
 {
     public static class QueryableExtensions
     {

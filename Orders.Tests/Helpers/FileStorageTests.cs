@@ -3,9 +3,9 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using Orders.Backend.Helpers;
+using PGCELL.Backend.Helpers;
 
-namespace Orders.Tests.Helpers
+namespace PGCELL.Tests.Helpers
 {
     [TestClass]
     public class FileStorageTests

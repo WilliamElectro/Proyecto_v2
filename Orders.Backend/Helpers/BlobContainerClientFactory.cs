@@ -1,7 +1,7 @@
 ﻿using Azure.Storage.Blobs;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Orders.Backend.Helpers
+namespace PGCELL.Backend.Helpers
 {
     [ExcludeFromCodeCoverage(Justification = "It is a wrapper used to test other classes. There is no way to prove it.")]
     public class BlobContainerClientFactory : IBlobContainerClientFactory

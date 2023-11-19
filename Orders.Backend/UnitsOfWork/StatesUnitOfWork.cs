@@ -1,9 +1,9 @@
-﻿using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Responses;
+﻿using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.UnitsOfWork
+namespace PGCELL.Backend.UnitsOfWork
 {
     public class StatesUnitOfWork : GenericUnitOfWork<State>, IStatesUnitOfWork
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Orders.Shared.Entites
+namespace PGCELL.Shared.Entites
 {
     public class City
     {

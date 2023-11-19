@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Orders.Backend.Data;
+using PGCELL.Backend.Data;
 
 #nullable disable
 
-namespace Orders.Backend.Migrations
+namespace PGCELL.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20231027193821_AddTemporalOrder")]
@@ -158,7 +158,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Category", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -179,7 +179,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.City", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -203,7 +203,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Country", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -224,7 +224,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Product", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -256,7 +256,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.ProductCategory", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.ProductCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -279,7 +279,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("ProductCategories");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.ProductImage", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.ProductImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -301,7 +301,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.State", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -325,7 +325,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.TemporalOrder", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.TemporalOrder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -354,7 +354,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("TemporalOrders");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.User", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -461,7 +461,7 @@ namespace Orders.Backend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.User", null)
+                    b.HasOne("PGCELL.Shared.Entites.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -470,7 +470,7 @@ namespace Orders.Backend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.User", null)
+                    b.HasOne("PGCELL.Shared.Entites.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -485,7 +485,7 @@ namespace Orders.Backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Orders.Shared.Entites.User", null)
+                    b.HasOne("PGCELL.Shared.Entites.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -494,16 +494,16 @@ namespace Orders.Backend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.User", null)
+                    b.HasOne("PGCELL.Shared.Entites.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.City", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.State", "State")
+                    b.HasOne("PGCELL.Shared.Entites.State", "State")
                         .WithMany("Cities")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -512,15 +512,15 @@ namespace Orders.Backend.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.ProductCategory", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.ProductCategory", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.Category", "Category")
+                    b.HasOne("PGCELL.Shared.Entites.Category", "Category")
                         .WithMany("ProductCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Orders.Shared.Entites.Product", "Product")
+                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
                         .WithMany("ProductCategories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -531,9 +531,9 @@ namespace Orders.Backend.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.ProductImage", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.ProductImage", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.Product", "Product")
+                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
                         .WithMany("ProductImages")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -542,9 +542,9 @@ namespace Orders.Backend.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.State", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.Country", "Country")
+                    b.HasOne("PGCELL.Shared.Entites.Country", "Country")
                         .WithMany("States")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -553,15 +553,15 @@ namespace Orders.Backend.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.TemporalOrder", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.TemporalOrder", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.Product", "Product")
+                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
                         .WithMany("TemporalOrders")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Orders.Shared.Entites.User", "User")
+                    b.HasOne("PGCELL.Shared.Entites.User", "User")
                         .WithMany("TemporalOrders")
                         .HasForeignKey("UserId");
 
@@ -570,9 +570,9 @@ namespace Orders.Backend.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.User", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.User", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.City", "City")
+                    b.HasOne("PGCELL.Shared.Entites.City", "City")
                         .WithMany("Users")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -581,22 +581,22 @@ namespace Orders.Backend.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Category", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>
                 {
                     b.Navigation("ProductCategories");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.City", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Country", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Navigation("States");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Product", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Product", b =>
                 {
                     b.Navigation("ProductCategories");
 
@@ -605,12 +605,12 @@ namespace Orders.Backend.Migrations
                     b.Navigation("TemporalOrders");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.State", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
                     b.Navigation("Cities");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.User", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.User", b =>
                 {
                     b.Navigation("TemporalOrders");
                 });

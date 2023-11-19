@@ -1,6 +1,6 @@
-﻿using Orders.Shared.Responses;
+﻿using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Helpers
+namespace PGCELL.Backend.Helpers
 {
     public interface IOrdersHelper
     {

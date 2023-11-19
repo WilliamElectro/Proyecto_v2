@@ -1,9 +1,9 @@
 ﻿using Blazored.Modal.Services;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Repositories;
+using PGCELL.Frontend.Repositories;
 
-namespace Orders.Frontend.Pages.Auth
+namespace PGCELL.Frontend.Pages.Auth
 {
     public partial class ConfirmEmail
     {

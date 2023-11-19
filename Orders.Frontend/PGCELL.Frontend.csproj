@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Orders.Shared\Orders.Shared.csproj" />
+    <ProjectReference Include="..\Orders.Shared\PGCELL.Shared.csproj" />
   </ItemGroup>
 
 </Project>

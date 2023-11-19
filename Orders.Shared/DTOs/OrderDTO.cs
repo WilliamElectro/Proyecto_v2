@@ -1,6 +1,6 @@
-﻿using Orders.Shared.Enums;
+﻿using PGCELL.Shared.Enums;
 
-namespace Orders.Shared.DTOs
+namespace PGCELL.Shared.DTOs
 {
     public class OrderDTO
     {

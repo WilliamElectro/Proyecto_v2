@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Orders.Backend.Migrations
+namespace PGCELL.Backend.Migrations
 {
     /// <inheritdoc />
     public partial class Users : Migration

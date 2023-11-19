@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Orders.Backend.Data;
+using PGCELL.Backend.Data;
 
 #nullable disable
 
-namespace Orders.Backend.Migrations
+namespace PGCELL.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20231024195147_AddStatesAndCities")]
@@ -24,7 +24,7 @@ namespace Orders.Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Orders.Shared.Entites.Category", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.City", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Country", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,7 +90,7 @@ namespace Orders.Backend.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.State", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,9 +114,9 @@ namespace Orders.Backend.Migrations
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.City", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.State", "State")
+                    b.HasOne("PGCELL.Shared.Entites.State", "State")
                         .WithMany("Cities")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -125,9 +125,9 @@ namespace Orders.Backend.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.State", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
-                    b.HasOne("Orders.Shared.Entites.Country", "Country")
+                    b.HasOne("PGCELL.Shared.Entites.Country", "Country")
                         .WithMany("States")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -136,12 +136,12 @@ namespace Orders.Backend.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.Country", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Navigation("States");
                 });
 
-            modelBuilder.Entity("Orders.Shared.Entites.State", b =>
+            modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
                     b.Navigation("Cities");
                 });

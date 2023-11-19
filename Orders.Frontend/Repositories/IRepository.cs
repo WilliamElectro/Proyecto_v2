@@ -1,4 +1,4 @@
-﻿namespace Orders.Frontend.Repositories
+﻿namespace PGCELL.Frontend.Repositories
 {
     public interface IRepository
     {

@@ -1,12 +1,12 @@
 ﻿using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
-using Orders.Backend.Helpers;
-using Orders.Backend.Services;
-using Orders.Shared.Entites;
-using Orders.Shared.Enums;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Services;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Enums;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Data
+namespace PGCELL.Backend.Data
 {
     public class SeedDb
     {

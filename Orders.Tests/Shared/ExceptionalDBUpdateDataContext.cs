@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Orders.Backend.Data;
+using PGCELL.Backend.Data;
 
-namespace Orders.Tests.Shared
+namespace PGCELL.Tests.Shared
 {
     public class ExceptionalDBUpdateDataContext : DataContext
     {

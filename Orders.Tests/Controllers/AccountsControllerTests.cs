@@ -5,17 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using Orders.Backend.Controllers;
-using Orders.Backend.Helpers;
-using Orders.Backend.Helpers.Orders.Backend.Helpers;
-using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Enums;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Controllers;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Helpers.PGCELL.Backend.Helpers;
+using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Enums;
+using PGCELL.Shared.Responses;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
-namespace Orders.Tests.Controllers
+namespace PGCELL.Tests.Controllers
 {
     [TestClass]
     public class AccountsControllerTests

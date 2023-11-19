@@ -2,12 +2,12 @@
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Enums;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Enums;
 
-namespace Orders.Frontend.Pages.Cart
+namespace PGCELL.Frontend.Pages.Cart
 {
     [Authorize(Roles = "Admin, User")]
     public partial class OrderDetails

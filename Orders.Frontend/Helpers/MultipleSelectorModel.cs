@@ -1,4 +1,4 @@
-﻿namespace Orders.Frontend.Helpers
+﻿namespace PGCELL.Frontend.Helpers
 {
     public class MultipleSelectorModel
     {

@@ -1,7 +1,7 @@
-﻿using Orders.Shared.DTOs;
-using Orders.Shared.Responses;
+﻿using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Repositories
+namespace PGCELL.Backend.Repositories
 {
     public interface IGenericRepository<T> where T : class
     {

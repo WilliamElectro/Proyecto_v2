@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Orders.Backend.Data
+namespace PGCELL.Backend.Data
 {
     public interface IRuntimeInformationWrapper
     {

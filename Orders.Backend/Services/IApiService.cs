@@ -1,6 +1,6 @@
-﻿using Orders.Shared.Responses;
+﻿using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Services
+namespace PGCELL.Backend.Services
 {
     public interface IApiService
     {

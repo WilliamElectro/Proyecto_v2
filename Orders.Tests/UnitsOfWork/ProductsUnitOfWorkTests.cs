@@ -1,11 +1,11 @@
 ﻿using Moq;
-using Orders.Backend.Repositories;
-using Orders.Backend.UnitsOfWork;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Repositories;
+using PGCELL.Backend.UnitsOfWork;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Tests.UnitsOfWork
+namespace PGCELL.Tests.UnitsOfWork
 {
     [TestClass]
     public class ProductsUnitOfWorkTests

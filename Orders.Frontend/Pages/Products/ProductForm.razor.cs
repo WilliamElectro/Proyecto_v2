@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Routing;
-using Orders.Frontend.Helpers;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
+using PGCELL.Frontend.Helpers;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Frontend.Pages.Products
+namespace PGCELL.Frontend.Pages.Products
 {
     public partial class ProductForm
     {

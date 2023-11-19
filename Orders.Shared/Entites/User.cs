@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
-using Orders.Shared.Enums;
+using PGCELL.Shared.Enums;
 
-namespace Orders.Shared.Entites
+namespace PGCELL.Shared.Entites
 {
     public class User : IdentityUser
     {

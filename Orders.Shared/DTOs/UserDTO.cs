@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Orders.Shared.Entites;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Shared.DTOs
+namespace PGCELL.Shared.DTOs
 {
     public class UserDTO : User
     {

@@ -3,10 +3,10 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
-using Orders.Frontend.Helpers;
-using Orders.Frontend.Services;
+using PGCELL.Frontend.Helpers;
+using PGCELL.Frontend.Services;
 
-namespace Orders.Frontend.AuthenticationProviders
+namespace PGCELL.Frontend.AuthenticationProviders
 {
     public class AuthenticationProviderJWT : AuthenticationStateProvider, ILoginService
     {

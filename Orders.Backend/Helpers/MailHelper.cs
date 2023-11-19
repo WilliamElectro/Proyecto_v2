@@ -1,8 +1,8 @@
 ﻿using MimeKit;
-using Orders.Backend.Helpers.Orders.Backend.Helpers;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Helpers.PGCELL.Backend.Helpers;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Helpers
+namespace PGCELL.Backend.Helpers
 {
     public class MailHelper : IMailHelper
     {

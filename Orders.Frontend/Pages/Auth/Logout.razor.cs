@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Services;
+using PGCELL.Frontend.Services;
 
-namespace Orders.Frontend.Pages.Auth
+namespace PGCELL.Frontend.Pages.Auth
 {
     public partial class Logout
     {

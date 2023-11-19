@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Orders.Frontend.Helpers
+namespace PGCELL.Frontend.Helpers
 {
     public class EnumHelper
     {

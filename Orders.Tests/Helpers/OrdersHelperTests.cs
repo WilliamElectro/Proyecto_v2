@@ -1,10 +1,10 @@
 ﻿using Moq;
-using Orders.Backend.Helpers;
-using Orders.Backend.UnitsOfWork;
-using Orders.Shared.Entites;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.UnitsOfWork;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Tests.Helpers
+namespace PGCELL.Tests.Helpers
 {
     [TestClass]
     public class OrdersHelperTests

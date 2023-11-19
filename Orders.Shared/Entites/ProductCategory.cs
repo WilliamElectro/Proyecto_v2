@@ -1,4 +1,4 @@
-﻿namespace Orders.Shared.Entites
+﻿namespace PGCELL.Shared.Entites
 {
     public class ProductCategory
     {

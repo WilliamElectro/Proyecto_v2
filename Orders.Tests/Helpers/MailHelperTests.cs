@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MimeKit;
 using Moq;
-using Orders.Backend.Helpers;
+using PGCELL.Backend.Helpers;
 
-namespace Orders.Tests.Helpers
+namespace PGCELL.Tests.Helpers
 {
     [TestClass]
     public class MailHelperTests

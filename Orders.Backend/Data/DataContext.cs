@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Orders.Shared.Entites;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Backend.Data
+namespace PGCELL.Backend.Data
 {
     public class DataContext : IdentityDbContext<User>
     {

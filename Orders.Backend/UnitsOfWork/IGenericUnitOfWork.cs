@@ -1,7 +1,7 @@
-﻿using Orders.Shared.DTOs;
-using Orders.Shared.Responses;
+﻿using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.UnitsOfWork
+namespace PGCELL.Backend.UnitsOfWork
 {
     public interface IGenericUnitOfWork<T> where T : class
     {

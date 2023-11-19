@@ -1,11 +1,11 @@
 ﻿using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Enums;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Enums;
 
-namespace Orders.Frontend.Pages.Auth
+namespace PGCELL.Frontend.Pages.Auth
 {
     public partial class Register
     {

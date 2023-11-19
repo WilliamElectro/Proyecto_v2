@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Orders.Backend.Data;
-using Orders.Backend.Helpers;
-using Orders.Backend.Helpers.Orders.Backend.Helpers;
-using Orders.Backend.Repositories;
-using Orders.Backend.Services;
-using Orders.Backend.UnitsOfWork;
-using Orders.Shared.Entites;
+using PGCELL.Backend.Data;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Helpers.PGCELL.Backend.Helpers;
+using PGCELL.Backend.Repositories;
+using PGCELL.Backend.Services;
+using PGCELL.Backend.UnitsOfWork;
 using Microsoft.Extensions.Azure;
 using System.Diagnostics.CodeAnalysis;
+using PGCELL.Shared.Entites;
 
 [ExcludeFromCodeCoverage(Justification = "No way to add unit test.")]
 internal class Program

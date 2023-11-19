@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Backend.Helpers
+namespace PGCELL.Backend.Helpers
 {
     public interface IUserHelper
     {

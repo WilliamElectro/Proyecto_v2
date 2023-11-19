@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
-namespace Orders.Backend.Data
+namespace PGCELL.Backend.Data
 {
     [ExcludeFromCodeCoverage(Justification = "It is a wrapper used to test other classes. There is no way to prove it.")]
     public class RuntimeInformationWrapper : IRuntimeInformationWrapper

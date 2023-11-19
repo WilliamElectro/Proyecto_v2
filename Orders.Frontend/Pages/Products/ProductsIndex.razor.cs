@@ -1,10 +1,10 @@
 ﻿using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Repositories;
-using Orders.Shared.Entites;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Frontend.Pages.Products
+namespace PGCELL.Frontend.Pages.Products
 {
     [Authorize(Roles = "Admin")]
     public partial class ProductsIndex

@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Orders.Backend.Helpers;
-using Orders.Backend.Helpers.Orders.Backend.Helpers;
-using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Helpers.PGCELL.Backend.Helpers;
+using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Backend.Controllers
+namespace PGCELL.Backend.Controllers
 {
     [ApiController]
     [Route("/api/accounts")]

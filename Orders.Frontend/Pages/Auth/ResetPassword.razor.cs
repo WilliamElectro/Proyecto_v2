@@ -1,10 +1,10 @@
 ﻿using Blazored.Modal.Services;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Repositories;
-using Orders.Shared.DTOs;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Shared.DTOs;
 
-namespace Orders.Frontend.Pages.Auth
+namespace PGCELL.Frontend.Pages.Auth
 {
     public partial class ResetPassword
     {

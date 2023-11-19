@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
-using Orders.Backend.Data;
-using Orders.Backend.Helpers;
-using Orders.Backend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
-using Orders.Shared.Enums;
+using PGCELL.Backend.Data;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
+using PGCELL.Shared.Enums;
 
-namespace Orders.Tests.Repositories
+namespace PGCELL.Tests.Repositories
 {
     [TestClass]
     public class OrdersRepositoryTests
@@ -248,7 +248,7 @@ namespace Orders.Tests.Repositories
         private async Task<Order> CreateTestOrder(User user)
         {
             var order = new Order { UserId = user.Id };
-            await _context.Orders.AddAsync(order);
+            await _context.PGCELL.AddAsync(order);
             await _context.SaveChangesAsync();
             return order;
         }
@@ -264,7 +264,7 @@ namespace Orders.Tests.Repositories
                     new OrderDetail { Id = 1, ProductId = 1 }
                 }
             };
-            await _context.Orders.AddAsync(order);
+            await _context.PGCELL.AddAsync(order);
             await _context.SaveChangesAsync();
             return order;
         }

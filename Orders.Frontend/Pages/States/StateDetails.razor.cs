@@ -4,11 +4,11 @@ using Blazored.Modal.Services;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
-using Orders.Frontend.Pages.Cities;
-using Orders.Frontend.Repositories;
-using Orders.Shared.Entites;
+using PGCELL.Frontend.Pages.Cities;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Frontend.Pages.States
+namespace PGCELL.Frontend.Pages.States
 {
     [Authorize(Roles = "Admin")]
     public partial class StateDetails

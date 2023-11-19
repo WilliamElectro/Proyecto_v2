@@ -1,11 +1,11 @@
 ﻿using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Orders.Frontend.Repositories;
-using Orders.Shared.DTOs;
-using Orders.Shared.Entites;
+using PGCELL.Frontend.Repositories;
+using PGCELL.Shared.DTOs;
+using PGCELL.Shared.Entites;
 
-namespace Orders.Frontend.Pages.Products
+namespace PGCELL.Frontend.Pages.Products
 {
     public partial class ProductDetails
     {

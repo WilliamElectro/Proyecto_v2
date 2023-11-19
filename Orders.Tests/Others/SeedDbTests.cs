@@ -1,12 +1,12 @@
 ﻿using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Orders.Backend.Data;
-using Orders.Backend.Helpers;
-using Orders.Backend.Services;
-using Orders.Shared.Responses;
+using PGCELL.Backend.Data;
+using PGCELL.Backend.Helpers;
+using PGCELL.Backend.Services;
+using PGCELL.Shared.Responses;
 
-namespace Orders.Tests.Others
+namespace PGCELL.Tests.Others
 {
     [TestClass]
     public class SeedDbTests

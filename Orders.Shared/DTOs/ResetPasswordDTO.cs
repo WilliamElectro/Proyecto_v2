@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Orders.Shared.DTOs
+namespace PGCELL.Shared.DTOs
 {
     public class ResetPasswordDTO
     {
