@@ -248,7 +248,7 @@ namespace PGCELL.Tests.Repositories
         private async Task<Order> CreateTestOrder(User user)
         {
             var order = new Order { UserId = user.Id };
-            await _context.PGCELL.AddAsync(order);
+            await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
             return order;
         }
@@ -264,7 +264,7 @@ namespace PGCELL.Tests.Repositories
                     new OrderDetail { Id = 1, ProductId = 1 }
                 }
             };
-            await _context.PGCELL.AddAsync(order);
+            await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
             return order;
         }

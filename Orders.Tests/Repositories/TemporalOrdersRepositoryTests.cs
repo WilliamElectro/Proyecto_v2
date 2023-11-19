@@ -63,8 +63,8 @@ namespace PGCELL.Tests.Repositories
 
             // Assert
             Assert.IsTrue(result.WasSuccess);
-            Assert.AreEqual(1, _context.TemporalPGCELL.Count());
-            var temporalOrder = _context.TemporalPGCELL.First();
+            Assert.AreEqual(1, _context.TemporalOrders.Count());
+            var temporalOrder = _context.TemporalOrders.First();
             Assert.AreEqual(product.Id, temporalOrder.ProductId);
             Assert.AreEqual(1, temporalOrder.Quantity);
         }
@@ -160,7 +160,7 @@ namespace PGCELL.Tests.Repositories
                 new TemporalOrder { User = user, Product = product, Quantity = 2 }
             };
 
-            _context.TemporalPGCELL.AddRange(temporalOrders);
+            _context.TemporalOrders.AddRange(temporalOrders);
             _context.SaveChanges();
 
             // Act
@@ -204,7 +204,7 @@ namespace PGCELL.Tests.Repositories
         {
             // Arrange
             var temporalOrder = new TemporalOrder { Id = 1, Remarks = "Old Remarks", Quantity = 5 };
-            _context.TemporalPGCELL.Add(temporalOrder);
+            _context.TemporalOrders.Add(temporalOrder);
             await _context.SaveChangesAsync();
 
             var updateDTO = new TemporalOrderDTO { Id = 1, Remarks = "New Remarks", Quantity = 10 };
@@ -246,7 +246,7 @@ namespace PGCELL.Tests.Repositories
             _context.SaveChanges();
 
             var temporalOrder = new TemporalOrder { Id = 1, User = user, Product = product };
-            _context.TemporalPGCELL.Add(temporalOrder);
+            _context.TemporalOrders.Add(temporalOrder);
             await _context.SaveChangesAsync();
 
             // Act
