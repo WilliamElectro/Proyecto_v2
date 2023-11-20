@@ -22,7 +22,7 @@ namespace PGCELL.Tests.Others
         public void Initialize()
         {
             var options = new DbContextOptionsBuilder<DataContext>()
-                .UseInMemoryDatabase(databaseName: "OrdersDbTest")
+                .UseInMemoryDatabase(databaseName: "PGCELLDbTest")
                 .Options;
             _context = new DataContext(options);
 

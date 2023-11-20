@@ -7,7 +7,7 @@
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:DockerConnection",
+      "connectionId": "ConnectionStrings:LocalConnection",
       "dynamicId": null
     },
     "storage1": {

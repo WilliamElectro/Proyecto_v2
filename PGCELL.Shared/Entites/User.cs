@@ -32,7 +32,7 @@ namespace PGCELL.Shared.Entites
         [Display(Name = "Tipo de usuario")]
         public UserType UserType { get; set; }
 
-        public City City { get; set; } = null!;
+        public City? City { get; set; }
 
         [Display(Name = "Ciudad")]
         [Range(1, int.MaxValue, ErrorMessage = "Debes seleccionar una {0}.")]
