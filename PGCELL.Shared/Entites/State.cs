@@ -13,7 +13,7 @@ namespace PGCELL.Shared.Entites
 
         public int CountryId { get; set; }
 
-        public Country Country { get; set; } = null!;
+        public Country? Country { get; set; }
 
         public ICollection<City>? Cities { get; set; }
 
