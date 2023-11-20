@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Shared", "Orders.Shared\PGCELL.Shared.csproj", "{ABBC9F6C-BDE2-48AE-8A91-76C0530DBA7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Shared", "PGCELL.Shared\PGCELL.Shared.csproj", "{ABBC9F6C-BDE2-48AE-8A91-76C0530DBA7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Backend", "Orders.Backend\PGCELL.Backend.csproj", "{3337AC5D-C7C4-43AC-9337-613B0606194F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Backend", "PGCELL.Backend\PGCELL.Backend.csproj", "{3337AC5D-C7C4-43AC-9337-613B0606194F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Tests", "Orders.Tests\PGCELL.Tests.csproj", "{6577A9BC-8310-48B4-8627-020047E63807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Tests", "PGCELL.Tests\PGCELL.Tests.csproj", "{6577A9BC-8310-48B4-8627-020047E63807}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Frontend", "Orders.Frontend\PGCELL.Frontend.csproj", "{936C6319-ABE5-4AE3-B6FF-43EFC9FCBF71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGCELL.Frontend", "PGCELL.Frontend\PGCELL.Frontend.csproj", "{936C6319-ABE5-4AE3-B6FF-43EFC9FCBF71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
