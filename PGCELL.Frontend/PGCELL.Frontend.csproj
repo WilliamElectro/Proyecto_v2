@@ -20,4 +20,8 @@
     <ProjectReference Include="..\PGCELL.Shared\PGCELL.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\TypeNovelties\" />
+  </ItemGroup>
+
 </Project>
