@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Routing;
 using PGCELL.Shared.Entites;
+using System.Threading.Tasks;
 
-namespace PGCELL.Frontend.Pages.Modalities
+namespace PGCELL.Frontend.Pages.TypeNovelties
 {
-    public partial class ModalityForm
+    public partial class TypeNoveltyForm
     {
         [Inject] private SweetAlertService sweetAlertService { get; set; } = null!;
 
@@ -14,12 +15,12 @@ namespace PGCELL.Frontend.Pages.Modalities
 
         protected override void OnInitialized()
         {
-            editContext = new(Modality);
+            editContext = new(TypeNovelty);
         }
 
         [EditorRequired]
         [Parameter]
-        public Modality Modality { get; set; } = null!;
+        public TypeNovelty TypeNovelty { get; set; } = null!;
 
         [EditorRequired]
         [Parameter]
@@ -47,8 +48,8 @@ namespace PGCELL.Frontend.Pages.Modalities
 
             var result = await sweetAlertService.FireAsync(new SweetAlertOptions
             {
-                Title = "Confirmación",
-                Text = "¿Deseas abandonar la página y perder los cambios?",
+                Title = "Confirmation",
+                Text = "Do you want to leave the page and lose the changes?",
                 Icon = SweetAlertIcon.Warning,
                 ShowCancelButton = true
             });

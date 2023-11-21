@@ -12,9 +12,9 @@ namespace PGCELL.Backend.Controllers
     [Route("api/[controller]")]
     public class TypeNoveltiesController : GenericController<TypeNovelty>
     {
-        private readonly ITypeNoveltyUnitOfWork _typeNoveltyUnitOfWork;
+        private readonly ITypeNoveltiesUnitOfWork _typeNoveltyUnitOfWork;
 
-        public TypeNoveltiesController(IGenericUnitOfWork<TypeNovelty> unit, ITypeNoveltyUnitOfWork typeNoveltyUnitOfWork) : base(unit)
+        public TypeNoveltiesController(IGenericUnitOfWork<TypeNovelty> unit, ITypeNoveltiesUnitOfWork typeNoveltyUnitOfWork) : base(unit)
         {
             _typeNoveltyUnitOfWork = typeNoveltyUnitOfWork;
         }
@@ -23,8 +23,7 @@ namespace PGCELL.Backend.Controllers
         [HttpGet("combo")]
         public async Task<IActionResult> GetComboAsync()
         {
-            IEnumerable<TypeNovelty> combo = await _typeNoveltyUnitOfWork.GetComboAsync();
-            return Ok(combo);
+            return Ok(await _typeNoveltyUnitOfWork.GetComboAsync());
         }
 
         [HttpGet]

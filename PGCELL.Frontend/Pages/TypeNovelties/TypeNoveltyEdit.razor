@@ -1,0 +1,12 @@
+﻿@page "/typenovelties/edit/{Id:int}"
+
+<h3>Editar Tipo de Novedad</h3>
+
+@if (typeNovelty is null)
+{
+    <Loading /> <!-- Aquí puedes usar tu componente de carga -->
+}
+else
+{
+    <TypeNoveltyForm @ref="typeNoveltyForm" TypeNovelty="typeNovelty" OnValidSubmit="EditAsync" ReturnAction="Return" />
+}

@@ -5,17 +5,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using PGCELL.Frontend.Repositories;
 using PGCELL.Shared.Entites;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace PGCELL.Frontend.Pages.Modalities
+namespace PGCELL.Frontend.Pages.TypeNovelties
 {
     [Authorize(Roles = "Admin")]
-    public partial class ModalitiesIndex : ComponentBase
+    public partial class TypeNoveltyIndex : ComponentBase
     {
         [Inject] private IRepository repository { get; set; } = null!;
         [Inject] private SweetAlertService sweetAlertService { get; set; } = null!;
         [CascadingParameter] private IModalService Modal { get; set; } = default!;
 
-        public List<Modality>? Modalities { get; set; }
+        public List<TypeNovelty>? TypeNovelties { get; set; }
         private int currentPage = 1;
         private int totalPages;
         private string Filter { get; set; } = string.Empty;
@@ -31,11 +33,11 @@ namespace PGCELL.Frontend.Pages.Modalities
 
             if (isEdit)
             {
-                modalReference = Modal.Show<ModalityEdit>(string.Empty, new ModalParameters().Add("Id", id));
+                modalReference = Modal.Show<TypeNoveltyEdit>(string.Empty, new ModalParameters().Add("Id", id));
             }
             else
             {
-                modalReference = Modal.Show<ModalityCreate>();
+                modalReference = Modal.Show<TypeNoveltyCreate>();
             }
 
             var result = await modalReference.Result;
@@ -70,26 +72,26 @@ namespace PGCELL.Frontend.Pages.Modalities
 
         private async Task<bool> LoadListAsync(int page)
         {
-            var url = $"api/modalities?page={page}";
+            var url = $"api/typenovelties?page={page}";
             if (!string.IsNullOrEmpty(Filter))
             {
                 url += $"&filter={Filter}";
             }
 
-            var response = await repository.GetAsync<List<Modality>>(url);
+            var response = await repository.GetAsync<List<TypeNovelty>>(url);
             if (response.Error)
             {
                 var message = await response.GetErrorMessageAsync();
                 await sweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
                 return false;
             }
-            Modalities = response.Response;
+            TypeNovelties = response.Response;
             return true;
         }
 
         private async Task LoadPagesAsync()
         {
-            var url = "api/modalities/totalPages";
+            var url = "api/typenovelties/totalPages";
             if (!string.IsNullOrEmpty(Filter))
             {
                 url += $"?filter={Filter}";
@@ -118,12 +120,12 @@ namespace PGCELL.Frontend.Pages.Modalities
             await SelectedPageAsync(page);
         }
 
-        private async Task DeleteAsync(Modality modality)
+        private async Task DeleteAsync(TypeNovelty typeNovelty)
         {
             var result = await sweetAlertService.FireAsync(new SweetAlertOptions
             {
                 Title = "Confirmación",
-                Text = $"¿Estás seguro que quieres borrar la modalidad: {modality.Name}?",
+                Text = $"¿Estás seguro que quieres borrar el tipo de novedad: {typeNovelty.Name}?",
                 Icon = SweetAlertIcon.Question,
                 ShowCancelButton = true
             });
@@ -134,7 +136,7 @@ namespace PGCELL.Frontend.Pages.Modalities
                 return;
             }
 
-            var response = await repository.DeleteAsync($"api/modalities/{modality.Id}");
+            var response = await repository.DeleteAsync($"api/typenovelties/{typeNovelty.Id}");
             if (response.Error)
             {
                 var message = await response.GetErrorMessageAsync();

@@ -32,6 +32,8 @@ namespace PGCELL.Backend.Data
 
         public DbSet<Modality> Modalities { get; set; }
 
+        public DbSet<TypeNovelty> TypeNovelties { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -41,6 +43,7 @@ namespace PGCELL.Backend.Data
             modelBuilder.Entity<State>().HasIndex(s => new { s.CountryId, s.Name }).IsUnique();
             modelBuilder.Entity<City>().HasIndex(c => new { c.StateId, c.Name }).IsUnique();
             modelBuilder.Entity<Modality>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<TypeNovelty>().HasIndex(c => c.Name).IsUnique();
             DisableCascadingDelete(modelBuilder);
         }
 

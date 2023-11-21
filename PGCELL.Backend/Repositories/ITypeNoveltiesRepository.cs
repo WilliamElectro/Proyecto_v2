@@ -2,9 +2,9 @@
 using PGCELL.Shared.Entites;
 using PGCELL.Shared.Responses;
 
-namespace PGCELL.Backend.UnitsOfWork
+namespace PGCELL.Backend.Repositories
 {
-    public interface ITypeNoveltyUnitOfWork
+    public interface ITypeNoveltiesRepository
     {
         Task<Response<IEnumerable<TypeNovelty>>> GetAsync(PaginationDTO pagination);
 
