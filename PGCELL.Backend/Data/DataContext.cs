@@ -30,6 +30,8 @@ namespace PGCELL.Backend.Data
 
         public DbSet<TemporalOrder> TemporalOrders { get; set; }
 
+        public DbSet<Modality> Modalities { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -38,6 +40,7 @@ namespace PGCELL.Backend.Data
             modelBuilder.Entity<Product>().HasIndex(x => x.Name).IsUnique();
             modelBuilder.Entity<State>().HasIndex(s => new { s.CountryId, s.Name }).IsUnique();
             modelBuilder.Entity<City>().HasIndex(c => new { c.StateId, c.Name }).IsUnique();
+            modelBuilder.Entity<Modality>().HasIndex(c => c.Name).IsUnique();
             DisableCascadingDelete(modelBuilder);
         }
 

@@ -1,0 +1,12 @@
+﻿@page "/modalities/edit/{Id:int}"
+
+<h3>Editar Modalidad</h3>
+
+@if (modality is null)
+{
+    <Loading />
+}
+else
+{
+    <ModalityForm @ref="modalityForm" Modality="modality" OnValidSubmit="EditAsync" ReturnAction="Return" />
+}

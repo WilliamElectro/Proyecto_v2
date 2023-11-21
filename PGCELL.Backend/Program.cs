@@ -78,6 +78,7 @@ internal class Program
         builder.Services.AddScoped<IStatesRepository, StatesRepository>();
         builder.Services.AddScoped<ITemporalOrdersRepository, TemporalOrdersRepository>();
         builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+        builder.Services.AddScoped<IModalitiesRepository, ModalitiesRepository>();
 
         builder.Services.AddScoped<ICategoriesUnitOfWork, CategoriesUnitOfWork>();
         builder.Services.AddScoped<ICitiesUnitOfWork, CitiesUnitOfWork>();
@@ -87,6 +88,7 @@ internal class Program
         builder.Services.AddScoped<IStatesUnitOfWork, StatesUnitOfWork>();
         builder.Services.AddScoped<ITemporalOrdersUnitOfWork, TemporalOrdersUnitOfWork>();
         builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
+        builder.Services.AddScoped<IModalitiesUnitOfWork, ModalitiesUnitOfWork>();
 
         builder.Services.AddTransient<SeedDb>();
         builder.Services.AddScoped<IApiService, ApiService>();
