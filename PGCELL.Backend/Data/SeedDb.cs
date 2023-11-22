@@ -63,16 +63,16 @@ namespace PGCELL.Backend.Data
         {
             if (!_context.Workers.Any())
             {
-                _context.Workers.Add(new Worker { Name = "William" });
-                _context.Workers.Add(new Worker { Name = "Sergio" });
-                _context.Workers.Add(new Worker { Name = "Jenny" });
-                _context.Workers.Add(new Worker { Name = "Karen" });
-                _context.Workers.Add(new Worker { Name = "Lucas" });
-                _context.Workers.Add(new Worker { Name = "Luis" });
-                _context.Workers.Add(new Worker { Name = "Martha" });
-                _context.Workers.Add(new Worker { Name = "Miguel" });
-                _context.Workers.Add(new Worker { Name = "Patricia" });
-                _context.Workers.Add(new Worker { Name = "Carmen" });
+                _context.Workers.Add(new Worker { Document = "1075 1", FirstName = "William" , LastName = "Bohorquez"});
+                _context.Workers.Add(new Worker { Document = "1075 2", FirstName = "Sergio", LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 3", FirstName = "Jenny" , LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 4", FirstName = "Karen" , LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 5", FirstName = "Lucas" , LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 6", FirstName = "Luis", LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 7", FirstName = "Martha", LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 8", FirstName = "Miguel", LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 9", FirstName = "Patricia", LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 10", FirstName = "Carmen", LastName = "" });
 
                 await _context.SaveChangesAsync();
             }

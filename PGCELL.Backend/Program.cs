@@ -60,7 +60,7 @@ internal class Program
                 });
         });
 
-        builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=DockerConnection"));
+        builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
         builder.Services.AddScoped<IMailHelper, MailHelper>();
         builder.Services.AddScoped<ISmtpClient, SmtpClientWrapper>();
         builder.Services.AddScoped<HttpClient>();
