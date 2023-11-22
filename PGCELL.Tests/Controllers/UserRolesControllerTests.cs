@@ -29,7 +29,7 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var comboData = new List<UserRol>
             {
-                new UserRol {  Id = 1, Name = "Admin" }
+                //new UserRol {  Id = 1, Name = "Admin" }
             };
             _mockUserRolUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
 
