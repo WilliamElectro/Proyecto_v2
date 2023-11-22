@@ -41,9 +41,7 @@ namespace PGCELL.Shared.Entites
         [Display(Name = "Usuario")]
         public string FullName => $"{FirstName} {LastName}";
 
-        public ICollection<TemporalOrder>? TemporalOrders { get; set; }
-
-        public ICollection<Order>? Orders { get; set; }
+              
         //public ICollection<UserRol>? UserRoles { get; set; } // Relación muchos a muchos con roles
 
 
