@@ -1,0 +1,56 @@
+﻿@page "/typenovelties"
+
+<div class="card">
+    <div class="card-header">
+        <span>
+            <i class="oi oi-list"></i> Tipos de Novedad
+            @if (isAuthenticated)
+            {
+                <a class="btn btn-sm btn-primary float-end" @onclick=@(() => ShowModal())><i class="oi oi-plus"></i> Agregar Tipo de Novedad</a>
+            }
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="mb-2" style="display: flex; flex-wrap:wrap; align-items: center;">
+            <div>
+                <input style="width: 400px;" type="text" class="form-control" id="titulo" placeholder="Buscar tipo de novedad..." @bind-value="Filter" />
+            </div>
+            <div class="mx-1">
+                <button type="button" class="btn btn-outline-primary" @onclick="ApplyFilterAsync"><i class="oi oi-layers" /> Filtrar</button>
+                <button type="button" class="btn btn-outline-danger" @onclick="CleanFilterAsync"><i class="oi oi-ban" /> Limpiar</button>
+            </div>
+        </div>
+
+        <Pagination CurrentPage="currentPage"
+                    TotalPages="totalPages"
+                    SelectedPage="SelectedPageAsync" />
+
+        <GenericList MyList="TypeNovelties">
+            <Body>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Modalidad</th>
+                            <th style="width:168px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var typeNovelty in TypeNovelties!)
+                        {
+                            <tr>
+                                <td>@typeNovelty.Name</td>
+                                <td>
+                                    @if (isAuthenticated)
+                                    {
+                                        <a class="btn btn-warning btn-sm" @onclick=@(() => ShowModal(typeNovelty.Id, true))><i class="oi oi-pencil" /> Editar</a>
+                                        <button class="btn btn-danger btn-sm" @onclick=@(() => DeleteAsync(typeNovelty))><i class="oi oi-trash" /> Borrar</button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </Body>
+        </GenericList>
+    </div>
+</div>
