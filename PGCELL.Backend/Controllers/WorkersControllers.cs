@@ -12,9 +12,9 @@ namespace PGCELL.Backend.Controllers
     [Route("api/[controller]")]
     public class WorkersController : GenericController<Worker>
     {
-        private readonly IWorkerUnitOfWork _workerUnitOfWork;
+        private readonly IWorkersUnitOfWork _workerUnitOfWork;
 
-        public WorkersController(IGenericUnitOfWork<Worker> unit, IWorkerUnitOfWork workerUnitOfWork) : base(unit)
+        public WorkersController(IGenericUnitOfWork<Worker> unit, IWorkersUnitOfWork workerUnitOfWork) : base(unit)
         {
             _workerUnitOfWork = workerUnitOfWork;
         }
