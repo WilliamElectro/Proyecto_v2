@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PGCELL.Backend.Data;
 
@@ -11,9 +12,11 @@ using PGCELL.Backend.Data;
 namespace PGCELL.Backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231122203931_AddWorkSchedules1")]
+    partial class AddWorkSchedules1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -616,35 +619,15 @@ namespace PGCELL.Backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Document")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int?>("ModalityId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Document")
+                    b.HasIndex("Name")
                         .IsUnique();
-
-                    b.HasIndex("ModalityId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Workers");
                 });
@@ -808,23 +791,6 @@ namespace PGCELL.Backend.Migrations
                         .IsRequired();
 
                     b.Navigation("City");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.Worker", b =>
-                {
-                    b.HasOne("PGCELL.Shared.Entites.Modality", "Modality")
-                        .WithMany()
-                        .HasForeignKey("ModalityId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("PGCELL.Shared.Entites.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Modality");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>

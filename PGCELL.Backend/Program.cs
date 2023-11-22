@@ -60,7 +60,7 @@ internal class Program
                 });
         });
 
-        builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=LocalConnection"));
+        builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=DockerConnection"));
         builder.Services.AddScoped<IMailHelper, MailHelper>();
         builder.Services.AddScoped<ISmtpClient, SmtpClientWrapper>();
         builder.Services.AddScoped<HttpClient>();
@@ -79,8 +79,12 @@ internal class Program
         builder.Services.AddScoped<ITemporalOrdersRepository, TemporalOrdersRepository>();
         builder.Services.AddScoped<IUsersRepository, UsersRepository>();
         builder.Services.AddScoped<IModalitiesRepository, ModalitiesRepository>();
+        builder.Services.AddScoped<INoveltiesRepository, NoveltiesRepository>();
         builder.Services.AddScoped<ITypeNoveltiesRepository, TypeNoveltiesRepository>();
         builder.Services.AddScoped<IWorkersRepository, WorkersRepository>();
+        builder.Services.AddScoped<IContractsRepository, ContractsRepository>();
+        builder.Services.AddScoped<IWorkSchedulesRepository, WorkSchedulesRepository>();
+
 
         builder.Services.AddScoped<ICategoriesUnitOfWork, CategoriesUnitOfWork>();
         builder.Services.AddScoped<ICitiesUnitOfWork, CitiesUnitOfWork>();
@@ -91,8 +95,11 @@ internal class Program
         builder.Services.AddScoped<ITemporalOrdersUnitOfWork, TemporalOrdersUnitOfWork>();
         builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
         builder.Services.AddScoped<IModalitiesUnitOfWork, ModalitiesUnitOfWork>();
+        builder.Services.AddScoped<INoveltiesUnitOfWork, NoveltiesUnitOfWork>();
         builder.Services.AddScoped<ITypeNoveltiesUnitOfWork, TypeNoveltiesUnitOfWork>();
         builder.Services.AddScoped<IWorkersUnitOfWork, WorkersUnitOfWork>();
+        builder.Services.AddScoped<IContractsUnitOfWork, ContractsUnitOfWork>();
+        builder.Services.AddScoped<IWorkSchedulesUnitOfWork, WorkSchedulesUnitOfWork>();
 
         builder.Services.AddTransient<SeedDb>();
         builder.Services.AddScoped<IApiService, ApiService>();
