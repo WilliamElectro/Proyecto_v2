@@ -38,6 +38,8 @@ namespace PGCELL.Backend.Data
 
         public DbSet<Contract> Contracts { get; set; }
 
+        public DbSet<WorkSchedule> WorkSchedules { get; set; }
+
         public DbSet<Novelty> Novelties { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -53,6 +55,7 @@ namespace PGCELL.Backend.Data
             modelBuilder.Entity<Worker>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Contract>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Novelty>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<WorkSchedule>().HasIndex(c => c.Name).IsUnique();
 
             DisableCascadingDelete(modelBuilder);
         }
