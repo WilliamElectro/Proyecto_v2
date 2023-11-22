@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics.Contracts;
+using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using PGCELL.Backend.Helpers;
 using PGCELL.Backend.Services;
@@ -34,18 +35,47 @@ namespace PGCELL.Backend.Data
             await CheckRolesAsync();
             //await CheckUserAsync("0001", "Juan", "Zuluaga", "zulu@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "JuanZuluaga.jpg", UserType.Admin);
             await CheckUserAsync("0001", "William", "Bohorquez", "williambohorquezgutierrez2@gmail.com", "320 476 3486", "Calle 1 Carrera 1", "bob.jpg", UserType.Admin);
+            await CheckUserAsync("0002", "Jenny", "Chavez", "jennycaro13@gmail.com", "320 456 6789", "Calle 40 Carrera 30", "selena.jpg", UserType.Admin);
             //await CheckUserAsync("0002", "Ledys", "Bedoya", "ledys@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "LedysBedoya.jpg", UserType.User);
-            //await CheckUserAsync("0003", "Brad", "Pitt", "brad@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "Brad.jpg", UserType.User);
-            //await CheckUserAsync("0004", "Angelina", "Jolie", "angelina@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "Angelina.jpg", UserType.User);
-            //await CheckUserAsync("0005", "Bob", "Marley", "bob@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "bob.jpg", UserType.User);
-            //await CheckUserAsync("0006", "Celia", "Cruz", "celia@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "celia.jpg", UserType.Admin);
-            //await CheckUserAsync("0007", "Fredy", "Mercury", "fredy@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "fredy.jpg", UserType.User);
-            //await CheckUserAsync("0008", "Hector", "Lavoe", "hector@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "hector.jpg", UserType.User);
-            //await CheckUserAsync("0009", "Liv", "Taylor", "liv@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "liv.jpg", UserType.User);
-            //await CheckUserAsync("0010", "Otep", "Shamaya", "otep@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "otep.jpg", UserType.User);
-            //await CheckUserAsync("0011", "Ozzy", "Osbourne", "ozzy@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "ozzy.jpg", UserType.User);
-            //await CheckUserAsync("0012", "Selena", "Quintanilla", "selenba@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "selena.jpg", UserType.User);
             await CheckProductsAsync();
+            await CheckWorkSchedulesAsync();
+            await CheckWorkersAsync();
+            await CheckTypeNoveltyAsync();
+            await CheckNoveltyAsync();
+            await CheckContractAsync();
+            await CheckModalitiesAsync();
+
+        }
+
+        private async Task CheckWorkSchedulesAsync()
+        {
+            if (!_context.WorkSchedules.Any())
+            {
+                _context.WorkSchedules.Add(new WorkSchedule { Name = "Mañana" });
+                _context.WorkSchedules.Add(new WorkSchedule { Name = "Tarde" });
+                _context.WorkSchedules.Add(new WorkSchedule { Name = "Noche" });
+                 
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckWorkersAsync()
+        {
+            if (!_context.Workers.Any())
+            {
+                _context.Workers.Add(new Worker { Name = "William" });
+                _context.Workers.Add(new Worker { Name = "Sergio" });
+                _context.Workers.Add(new Worker { Name = "Jenny" });
+                _context.Workers.Add(new Worker { Name = "Karen" });
+                _context.Workers.Add(new Worker { Name = "Lucas" });
+                _context.Workers.Add(new Worker { Name = "Luis" });
+                _context.Workers.Add(new Worker { Name = "Martha" });
+                _context.Workers.Add(new Worker { Name = "Miguel" });
+                _context.Workers.Add(new Worker { Name = "Patricia" });
+                _context.Workers.Add(new Worker { Name = "Carmen" });
+
+                await _context.SaveChangesAsync();
+            }
         }
 
         private async Task CheckCountriesAsync2()
@@ -70,6 +100,94 @@ namespace PGCELL.Backend.Data
                         }
                     }
                 });
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckTypeNoveltyAsync()
+        {
+            if (!_context.TypeNovelties.Any())
+            {
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Vacaciones" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por maternidad" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por paternidad" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por grave calamidad doméstica" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por luto" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia para entierro de compañeros" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia como consecuencia del desempeño de cargos oficiales" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia para ejercer el derecho al voto" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia sindical" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso sindical" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso de lactancia" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso académico compensado" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso para ejercer la docencia universitaria" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Descansos" });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckNoveltyAsync()
+        {
+            if (!_context.Novelties.Any())
+            {
+                _context.Novelties.Add(new Novelty { Name = "Licencia por grave calamidad doméstica - Juan" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por maternidad - Maria" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por paternidad - José" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por grave calamidad doméstica _ Angela" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por luto - Marcos" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia para entierro de compañeros - Morena" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia como consecuencia del desempeño de cargos oficiales - Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia para ejercer el derecho al voto - William" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia sindical - Sergio" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso sindical - Sergio" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso de lactancia -Nubia" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso académico compensado - Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso para ejercer la docencia universitaria - Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Descansos - William" });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckContractAsync()
+        {
+            if (!_context.Contracts.Any())
+            {
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Juan" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Maria" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de José" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Angela" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Marcos" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Morena" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Jenny" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de William" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Sergio" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Dario" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Nubia" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Vanessa" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Ricardo" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Hector" });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckModalitiesAsync()
+        {
+            if (!_context.Modalities.Any())
+            {
+                _context.Modalities.Add(new Modality { Name = "Contrato por obra o labor" });
+                _context.Modalities.Add(new Modality { Name = "Contrato de trabajo a término fijo" });
+                _context.Modalities.Add(new Modality { Name = "Contrato de trabajo a término indefinido" });
+                _context.Modalities.Add(new Modality { Name = "Contrato de aprendizaje" });
+                _context.Modalities.Add(new Modality { Name = "Contrato temporal, ocasional o accidental" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 1 contrato por hora" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 2 contrato por semana" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 3 contrato por mes" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 4 contrato por minutos" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 5 contrato por terceros" });
+
                 await _context.SaveChangesAsync();
             }
         }

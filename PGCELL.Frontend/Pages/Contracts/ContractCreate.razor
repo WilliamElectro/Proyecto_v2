@@ -1,0 +1,5 @@
+﻿@page "/contracts/create"
+
+<h3>Crear Contrato</h3>
+
+<ContractForm @ref="contractForm" Contract="contract" OnValidSubmit="CreateAsync" ReturnAction="Return" />
