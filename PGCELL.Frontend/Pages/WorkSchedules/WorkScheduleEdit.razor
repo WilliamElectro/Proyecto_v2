@@ -1,0 +1,12 @@
+﻿@page "/workschedules/edit/{Id:int}"
+
+<h3>Editar Horario Laboral</h3>
+
+@if (workSchedule is null)
+{
+    <Loading /> <!-- Aquí puedes usar tu componente de carga -->
+}
+else
+{
+    <WorkScheduleForm @ref="workScheduleForm" WorkSchedule="workSchedule" OnValidSubmit="EditAsync" ReturnAction="Return" />
+}
