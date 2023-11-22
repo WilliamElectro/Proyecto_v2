@@ -34,6 +34,7 @@ namespace PGCELL.Backend.Data
             await CheckRolesAsync();
             //await CheckUserAsync("0001", "Juan", "Zuluaga", "zulu@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "JuanZuluaga.jpg", UserType.Admin);
             await CheckUserAsync("0001", "William", "Bohorquez", "williambohorquezgutierrez2@gmail.com", "320 476 3486", "Calle 1 Carrera 1", "bob.jpg", UserType.Admin);
+            await CheckUserAsync("0002", "Jenny", "Chavez", "jennycaro13@gmail.com", "320 456 6789", "Calle 40 Carrera 30", "selena.jpg", UserType.Admin);
             //await CheckUserAsync("0002", "Ledys", "Bedoya", "ledys@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "LedysBedoya.jpg", UserType.User);
             //await CheckUserAsync("0003", "Brad", "Pitt", "brad@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "Brad.jpg", UserType.User);
             //await CheckUserAsync("0004", "Angelina", "Jolie", "angelina@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "Angelina.jpg", UserType.User);
@@ -46,6 +47,7 @@ namespace PGCELL.Backend.Data
             //await CheckUserAsync("0011", "Ozzy", "Osbourne", "ozzy@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "ozzy.jpg", UserType.User);
             //await CheckUserAsync("0012", "Selena", "Quintanilla", "selenba@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "selena.jpg", UserType.User);
             await CheckProductsAsync();
+
         }
 
         private async Task CheckCountriesAsync2()
