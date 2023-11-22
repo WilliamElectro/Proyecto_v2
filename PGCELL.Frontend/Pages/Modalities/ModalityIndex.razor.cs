@@ -3,12 +3,13 @@ using Blazored.Modal.Services;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using PGCELL.Frontend.Repositories;
 using PGCELL.Shared.Entites;
 
 namespace PGCELL.Frontend.Pages.Modalities
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public partial class ModalityIndex : ComponentBase
     {
         [Inject] private IRepository repository { get; set; } = null!;
@@ -19,10 +20,19 @@ namespace PGCELL.Frontend.Pages.Modalities
         private int currentPage = 1;
         private int totalPages;
         private string Filter { get; set; } = string.Empty;
+        [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; } = null!;
+        private bool isAuthenticated;
 
         protected override async Task OnInitializedAsync()
         {
+            await CheckIsAuthenticatedAsync();
             await LoadAsync();
+        }
+
+        private async Task CheckIsAuthenticatedAsync()
+        {
+            var authenticationState = await authenticationStateTask;
+            isAuthenticated = authenticationState.User.Identity!.IsAuthenticated;
         }
 
         private async Task ShowModal(int id = 0, bool isEdit = false)

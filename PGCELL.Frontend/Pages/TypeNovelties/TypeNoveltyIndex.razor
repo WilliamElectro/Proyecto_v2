@@ -4,7 +4,10 @@
     <div class="card-header">
         <span>
             <i class="oi oi-list"></i> Tipos de Novedad
-            <a class="btn btn-sm btn-primary float-end" @onclick=@(() => ShowModal())><i class="oi oi-plus"></i> Agregar Tipo de Novedad</a>
+            @if (isAuthenticated)
+            {
+                <a class="btn btn-sm btn-primary float-end" @onclick=@(() => ShowModal())><i class="oi oi-plus"></i> Agregar Tipo de Novedad</a>
+            }
         </span>
     </div>
     <div class="card-body">
@@ -37,8 +40,11 @@
                             <tr>
                                 <td>@typeNovelty.Name</td>
                                 <td>
-                                    <a class="btn btn-warning btn-sm" @onclick=@(() => ShowModal(typeNovelty.Id, true))><i class="oi oi-pencil" /> Editar</a>
-                                    <button class="btn btn-danger btn-sm" @onclick=@(() => DeleteAsync(typeNovelty))><i class="oi oi-trash" /> Borrar</button>
+                                    @if (isAuthenticated)
+                                    {
+                                        <a class="btn btn-warning btn-sm" @onclick=@(() => ShowModal(typeNovelty.Id, true))><i class="oi oi-pencil" /> Editar</a>
+                                        <button class="btn btn-danger btn-sm" @onclick=@(() => DeleteAsync(typeNovelty))><i class="oi oi-trash" /> Borrar</button>
+                                    }
                                 </td>
                             </tr>
                         }

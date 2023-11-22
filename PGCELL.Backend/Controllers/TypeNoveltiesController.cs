@@ -26,6 +26,7 @@ namespace PGCELL.Backend.Controllers
             return Ok(await _typeNoveltyUnitOfWork.GetComboAsync());
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
         {
@@ -37,6 +38,7 @@ namespace PGCELL.Backend.Controllers
             return BadRequest();
         }
 
+        [AllowAnonymous]
         [HttpGet("totalPages")]
         public override async Task<IActionResult> GetPagesAsync([FromQuery] PaginationDTO pagination)
         {
