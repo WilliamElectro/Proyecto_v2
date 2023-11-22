@@ -1,0 +1,5 @@
+﻿@page "/workers/create"
+
+<h3>Crear Trabajador</h3>
+
+<WorkerForm @ref="workerForm" Worker="worker" OnValidSubmit="CreateAsync" ReturnAction="Return" />

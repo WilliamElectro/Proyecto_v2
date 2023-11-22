@@ -4,7 +4,7 @@ using PGCELL.Shared.Responses;
 
 namespace PGCELL.Backend.UnitsOfWork
 {
-    public interface IWorkerUnitOfWork
+    public interface IWorkersUnitOfWork
     {
         Task<Response<IEnumerable<Worker>>> GetAsync(PaginationDTO pagination);
 
