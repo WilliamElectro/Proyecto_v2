@@ -27,5 +27,16 @@ namespace PGCELL.Backend.Controllers
             return Ok(combo);
         }
 
+        [HttpGet]
+        public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
+        {
+            var response = await _modalitiesUnitOfWork.GetAsync(pagination);
+            if (response.WasSuccess)
+            {
+                return Ok(response.Result);
+            }
+            return BadRequest();
+        }
+
     }
 }
