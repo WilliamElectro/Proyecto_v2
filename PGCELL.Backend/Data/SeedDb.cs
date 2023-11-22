@@ -38,6 +38,7 @@ namespace PGCELL.Backend.Data
             //await CheckUserAsync("0002", "Ledys", "Bedoya", "ledys@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "LedysBedoya.jpg", UserType.User);
             await CheckProductsAsync();
             await CheckWorkSchedulesAsync();
+            await CheckWorkersAsync();
 
         }
 
@@ -49,6 +50,25 @@ namespace PGCELL.Backend.Data
                 _context.WorkSchedules.Add(new WorkSchedule { Name = "Tarde" });
                 _context.WorkSchedules.Add(new WorkSchedule { Name = "Noche" });
                  
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckWorkersAsync()
+        {
+            if (!_context.Workers.Any())
+            {
+                _context.Workers.Add(new Worker { Name = "William" });
+                _context.Workers.Add(new Worker { Name = "Sergio" });
+                _context.Workers.Add(new Worker { Name = "Jenny" });
+                _context.Workers.Add(new Worker { Name = "Karen" });
+                _context.Workers.Add(new Worker { Name = "Lucas" });
+                _context.Workers.Add(new Worker { Name = "Luis" });
+                _context.Workers.Add(new Worker { Name = "Martha" });
+                _context.Workers.Add(new Worker { Name = "Miguel" });
+                _context.Workers.Add(new Worker { Name = "Patricia" });
+                _context.Workers.Add(new Worker { Name = "Carmen" });
+
                 await _context.SaveChangesAsync();
             }
         }
