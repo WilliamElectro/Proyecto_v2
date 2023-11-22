@@ -41,6 +41,7 @@ namespace PGCELL.Backend.Data
             await CheckWorkersAsync();
             await CheckTypeNoveltyAsync();
             await CheckNoveltyAsync();
+            await CheckContractAsync();
 
         }
 
@@ -142,6 +143,29 @@ namespace PGCELL.Backend.Data
                 _context.Novelties.Add(new Novelty { Name = "Permiso académico compensado - Jenny" });
                 _context.Novelties.Add(new Novelty { Name = "Permiso para ejercer la docencia universitaria - Jenny" });
                 _context.Novelties.Add(new Novelty { Name = "Descansos - William" });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckContractAsync()
+        {
+            if (!_context.Novelties.Any())
+            {
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Juan" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Maria" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de José" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Angela" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Marcos" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Morena" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de William" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Sergio" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Dario" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Nubia" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Vanessa" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Ricardo" });
+                _context.Novelties.Add(new Novelty { Name = "Contrato de Hector" });
 
                 await _context.SaveChangesAsync();
             }
