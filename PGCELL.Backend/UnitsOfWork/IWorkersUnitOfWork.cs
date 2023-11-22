@@ -6,6 +6,7 @@ namespace PGCELL.Backend.UnitsOfWork
 {
     public interface IWorkersUnitOfWork
     {
+        Task<Response<Worker>> GetAsync(int id);
         Task<Response<IEnumerable<Worker>>> GetAsync(PaginationDTO pagination);
 
         Task<Response<int>> GetTotalPagesAsync(PaginationDTO pagination);

@@ -46,7 +46,7 @@ namespace PGCELL.Backend.Data
             modelBuilder.Entity<City>().HasIndex(c => new { c.StateId, c.Name }).IsUnique();
             modelBuilder.Entity<Modality>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<TypeNovelty>().HasIndex(c => c.Name).IsUnique();
-            modelBuilder.Entity<Worker>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<Worker>().HasIndex(c => c.Document).IsUnique();
             DisableCascadingDelete(modelBuilder);
         }
 

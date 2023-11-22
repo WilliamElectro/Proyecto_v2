@@ -1,10 +1,8 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using CurrieTechnologies.Razor.SweetAlert2;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using PGCELL.Frontend.Pages.Workers;
 using PGCELL.Frontend.Repositories;
 using PGCELL.Shared.Entites;
 
@@ -24,10 +22,17 @@ namespace PGCELL.Frontend.Pages.Workers
         [CascadingParameter] private Task<AuthenticationState> authenticationStateTask { get; set; } = null!;
         private bool isAuthenticated;
 
+        [EditorRequired]
+        [Parameter]
+        public List<Modality> AvailableModalities { get; set; } = new List<Modality>(); // Asegúrate de tener esta lista
+
+        //private int selectedModalityId; // Campo para almacenar el ID de la modalidad seleccionada
+
         protected override async Task OnInitializedAsync()
         {
             await CheckIsAuthenticatedAsync();
             await LoadAsync();
+            await LoadModalitiesAsync();
         }
 
         private async Task CheckIsAuthenticatedAsync()
@@ -36,17 +41,36 @@ namespace PGCELL.Frontend.Pages.Workers
             isAuthenticated = authenticationState.User.Identity!.IsAuthenticated;
         }
 
+        private async Task LoadModalitiesAsync()
+        {
+            var responseHttp = await repository.GetAsync<List<Modality>>("/api/modalities/combo");
+            if (responseHttp.Error)
+            {
+                var message = await responseHttp.GetErrorMessageAsync();
+                await sweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
+                return;
+            }
+
+            AvailableModalities = responseHttp.Response;
+        }
+
         private async Task ShowModal(int id = 0, bool isEdit = false)
         {
             IModalReference modalReference;
 
             if (isEdit)
-            {
-                modalReference = Modal.Show<WorkerEdit>(string.Empty, new ModalParameters().Add("Id", id));
+            {                
+                modalReference = Modal.Show<WorkerEdit>(
+                    string.Empty,
+                    new ModalParameters
+                    {
+                        { "Id", id },
+                        { "AvailableModalities", AvailableModalities }
+                    });
             }
             else
-            {
-                modalReference = Modal.Show<WorkerCreate>();
+            {                
+                modalReference = Modal.Show<WorkerCreate>(string.Empty, new ModalParameters().Add("AvailableModalities", AvailableModalities));
             }
 
             var result = await modalReference.Result;
@@ -134,7 +158,7 @@ namespace PGCELL.Frontend.Pages.Workers
             var result = await sweetAlertService.FireAsync(new SweetAlertOptions
             {
                 Title = "Confirmación",
-                Text = $"¿Estás seguro que quieres borrar el trabajador: {worker.Name}?",
+                Text = $"¿Estás seguro que quieres borrar el trabajador: {worker.Document}?",
                 Icon = SweetAlertIcon.Question,
                 ShowCancelButton = true
             });

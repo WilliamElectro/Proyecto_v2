@@ -30,16 +30,18 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Trabajador</th>
-                            <th style="width:168px"></th>
+                            <th>Documento</th>
+                            <th colspan="3">Nombre</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var Worker in Workers!)
                         {
                             <tr>
-                                <td>@Worker.Name</td>
-                                <td>
+                                <td>@Worker.Document</td>
+                                <td>@Worker.FirstName</td>
+                                <td>@Worker.LastName</td>
+                                <td class="text-end">
                                     @if (isAuthenticated)
                                     {
                                         <a class="btn btn-warning btn-sm" @onclick=@(() => ShowModal(Worker.Id, true))><i class="oi oi-pencil" /> Editar</a>
