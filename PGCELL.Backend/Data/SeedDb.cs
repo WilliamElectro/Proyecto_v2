@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics.Contracts;
+using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using PGCELL.Backend.Helpers;
 using PGCELL.Backend.Services;
@@ -151,22 +152,22 @@ namespace PGCELL.Backend.Data
 
         private async Task CheckContractAsync()
         {
-            if (!_context.Novelties.Any())
+            if (!_context.Contracts.Any())
             {
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Juan" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Maria" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de José" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Angela" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Marcos" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Morena" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Jenny" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de William" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Sergio" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Dario" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Nubia" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Vanessa" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Ricardo" });
-                _context.Novelties.Add(new Novelty { Name = "Contrato de Hector" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Juan" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Maria" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de José" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Angela" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Marcos" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Morena" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Jenny" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de William" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Sergio" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Dario" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Nubia" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Vanessa" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Ricardo" });
+                _context.Contracts.Add(new Shared.Entites.Contract { Name = "Contrato de Hector" });
 
                 await _context.SaveChangesAsync();
             }
