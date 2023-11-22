@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using PGCELL.Backend.Controllers;
 using PGCELL.Backend.UnitsOfWork;
@@ -9,29 +9,29 @@ using PGCELL.Shared.Responses;
 namespace PGCELL.Tests.Controllers
 {
     [TestClass]
-    public class ModalitiesControllerTests
+    public class RolesControllerTests
     {
-        private Mock<IGenericUnitOfWork<Modality>> _mockGenericUnitOfWork = null!;
-        private Mock<IModalitiesUnitOfWork> _mockModalityUnitOfWork = null!;
-        private ModalitiesController _controller = null!;
+        private Mock<IGenericUnitOfWork<Role>> _mockGenericUnitOfWork = null!;
+        private Mock<IRoleUnitOfWork> _mockRoleUnitOfWork = null!;
+        private RolesController _controller = null!;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockGenericUnitOfWork = new Mock<IGenericUnitOfWork<Modality>>();
-            _mockModalityUnitOfWork = new Mock<IModalitiesUnitOfWork>();
-            _controller = new ModalitiesController(_mockGenericUnitOfWork.Object, _mockModalityUnitOfWork.Object);
+            _mockGenericUnitOfWork = new Mock<IGenericUnitOfWork<Role>>();
+            _mockRoleUnitOfWork = new Mock<IRoleUnitOfWork>();
+            _controller = new RolesController(_mockGenericUnitOfWork.Object, _mockRoleUnitOfWork.Object);
         }
 
         [TestMethod]
         public async Task GetComboAsync_ReturnsOkObjectResult()
         {
             // Arrange
-            var comboData = new List<Modality>
+            var comboData = new List<Role>
             {
-                new Modality {  Id = 1, Name = "Indefinido" }
+                new Role {  Id = 1, Name = "Admin" }
             };
-            _mockModalityUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
+            _mockRoleUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
 
             // Act
             var result = await _controller.GetComboAsync();
@@ -40,7 +40,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(comboData, okResult!.Value);
-            _mockModalityUnitOfWork.Verify(x => x.GetComboAsync(), Times.Once());
+            _mockRoleUnitOfWork.Verify(x => x.GetComboAsync(), Times.Once());
         }
 
         [TestMethod]
@@ -48,8 +48,8 @@ namespace PGCELL.Tests.Controllers
         {
             // Arrange
             var pagination = new PaginationDTO();
-            var response = new Response<IEnumerable<Modality>> { WasSuccess = true };
-            _mockModalityUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
+            var response = new Response<IEnumerable<Role>> { WasSuccess = true };
+            _mockRoleUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
 
             // Act
             var result = await _controller.GetAsync(pagination);
@@ -58,7 +58,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(response.Result, okResult!.Value);
-            _mockModalityUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
+            _mockRoleUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -66,15 +66,15 @@ namespace PGCELL.Tests.Controllers
         {
             // Arrange
             var pagination = new PaginationDTO();
-            var response = new Response<IEnumerable<Modality>> { WasSuccess = false };
-            _mockModalityUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
+            var response = new Response<IEnumerable<Role>> { WasSuccess = false };
+            _mockRoleUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
 
             // Act
             var result = await _controller.GetAsync(pagination);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-            _mockModalityUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
+            _mockRoleUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -83,7 +83,7 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var pagination = new PaginationDTO();
             var action = new Response<int> { WasSuccess = true, Result = 5 };
-            _mockModalityUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
+            _mockRoleUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
 
             // Act
             var result = await _controller.GetPagesAsync(pagination);
@@ -92,7 +92,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(action.Result, okResult!.Value);
-            _mockModalityUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
+            _mockRoleUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -101,14 +101,14 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var pagination = new PaginationDTO();
             var action = new Response<int> { WasSuccess = false };
-            _mockModalityUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
+            _mockRoleUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
 
             // Act
             var result = await _controller.GetPagesAsync(pagination);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-            _mockModalityUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
+            _mockRoleUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
         }
     }
 }
