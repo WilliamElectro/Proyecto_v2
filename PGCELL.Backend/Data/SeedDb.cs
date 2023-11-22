@@ -39,6 +39,8 @@ namespace PGCELL.Backend.Data
             await CheckProductsAsync();
             await CheckWorkSchedulesAsync();
             await CheckWorkersAsync();
+            await CheckTypeNoveltyAsync();
+            await CheckNoveltyAsync();
 
         }
 
@@ -95,6 +97,52 @@ namespace PGCELL.Backend.Data
                         }
                     }
                 });
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckTypeNoveltyAsync()
+        {
+            if (!_context.TypeNovelties.Any())
+            {
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Vacaciones" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por maternidad" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por paternidad" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por grave calamidad doméstica" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia por luto" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia para entierro de compañeros" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia como consecuencia del desempeño de cargos oficiales" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia para ejercer el derecho al voto" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Licencia sindical" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso sindical" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso de lactancia" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso académico compensado" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Permiso para ejercer la docencia universitaria" });
+                _context.TypeNovelties.Add(new TypeNovelty { Name = "Descansos" });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckNoveltyAsync()
+        {
+            if (!_context.Novelties.Any())
+            {
+                _context.Novelties.Add(new Novelty { Name = "Licencia por grave calamidad doméstica - Juan" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por maternidad - Maria" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por paternidad - José" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por grave calamidad doméstica _ Angela" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia por luto - Marcos" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia para entierro de compañeros - Morena" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia como consecuencia del desempeño de cargos oficiales - Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia para ejercer el derecho al voto - William" });
+                _context.Novelties.Add(new Novelty { Name = "Licencia sindical - Sergio" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso sindical - Sergio" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso de lactancia -Nubia" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso académico compensado - Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Permiso para ejercer la docencia universitaria - Jenny" });
+                _context.Novelties.Add(new Novelty { Name = "Descansos - William" });
+
                 await _context.SaveChangesAsync();
             }
         }
