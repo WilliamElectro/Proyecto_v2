@@ -1,0 +1,12 @@
+﻿@page "/novelties/edit/{Id:int}"
+
+<h3>Editar Novedad</h3>
+
+@if (novelty is null)
+{
+    <Loading /> <!-- Aquí puedes usar tu componente de carga -->
+}
+else
+{
+    <NoveltyForm @ref="noveltyForm" Novelty="novelty" OnValidSubmit="EditAsync" ReturnAction="Return" />
+}

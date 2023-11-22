@@ -79,6 +79,7 @@ internal class Program
         builder.Services.AddScoped<ITemporalOrdersRepository, TemporalOrdersRepository>();
         builder.Services.AddScoped<IUsersRepository, UsersRepository>();
         builder.Services.AddScoped<IModalitiesRepository, ModalitiesRepository>();
+        builder.Services.AddScoped<INoveltiesRepository, NoveltiesRepository>();
         builder.Services.AddScoped<ITypeNoveltiesRepository, TypeNoveltiesRepository>();
         builder.Services.AddScoped<IWorkersRepository, WorkersRepository>();
         builder.Services.AddScoped<IContractsRepository, ContractsRepository>();
@@ -93,6 +94,7 @@ internal class Program
         builder.Services.AddScoped<ITemporalOrdersUnitOfWork, TemporalOrdersUnitOfWork>();
         builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
         builder.Services.AddScoped<IModalitiesUnitOfWork, ModalitiesUnitOfWork>();
+        builder.Services.AddScoped<INoveltiesUnitOfWork, NoveltiesUnitOfWork>();
         builder.Services.AddScoped<ITypeNoveltiesUnitOfWork, TypeNoveltiesUnitOfWork>();
         builder.Services.AddScoped<IWorkersUnitOfWork, WorkersUnitOfWork>();
         builder.Services.AddScoped<IContractsUnitOfWork, ContractsUnitOfWork>();
