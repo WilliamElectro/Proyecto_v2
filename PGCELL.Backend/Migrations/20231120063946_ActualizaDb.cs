@@ -43,40 +43,8 @@ namespace PGCELL.Backend.Migrations
                 table: "Cities");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_OrderDetails_Orders_OrderId",
-                table: "OrderDetails");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_OrderDetails_Products_ProductId",
-                table: "OrderDetails");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Orders_AspNetUsers_UserId",
-                table: "Orders");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ProductCategories_Categories_CategoryId",
-                table: "ProductCategories");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ProductCategories_Products_ProductId",
-                table: "ProductCategories");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ProductImages_Products_ProductId",
-                table: "ProductImages");
-
-            migrationBuilder.DropForeignKey(
                 name: "FK_States_Countries_CountryId",
                 table: "States");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_TemporalOrders_AspNetUsers_UserId",
-                table: "TemporalOrders");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_TemporalOrders_Products_ProductId",
-                table: "TemporalOrders");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
@@ -143,74 +111,10 @@ namespace PGCELL.Backend.Migrations
                 onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_OrderDetails_Orders_OrderId",
-                table: "OrderDetails",
-                column: "OrderId",
-                principalTable: "Orders",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OrderDetails_Products_ProductId",
-                table: "OrderDetails",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Orders_AspNetUsers_UserId",
-                table: "Orders",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ProductCategories_Categories_CategoryId",
-                table: "ProductCategories",
-                column: "CategoryId",
-                principalTable: "Categories",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ProductCategories_Products_ProductId",
-                table: "ProductCategories",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ProductImages_Products_ProductId",
-                table: "ProductImages",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
                 name: "FK_States_Countries_CountryId",
                 table: "States",
                 column: "CountryId",
                 principalTable: "Countries",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_TemporalOrders_AspNetUsers_UserId",
-                table: "TemporalOrders",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_TemporalOrders_Products_ProductId",
-                table: "TemporalOrders",
-                column: "ProductId",
-                principalTable: "Products",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }
@@ -251,40 +155,8 @@ namespace PGCELL.Backend.Migrations
                 table: "Cities");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_OrderDetails_Orders_OrderId",
-                table: "OrderDetails");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_OrderDetails_Products_ProductId",
-                table: "OrderDetails");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Orders_AspNetUsers_UserId",
-                table: "Orders");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ProductCategories_Categories_CategoryId",
-                table: "ProductCategories");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ProductCategories_Products_ProductId",
-                table: "ProductCategories");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ProductImages_Products_ProductId",
-                table: "ProductImages");
-
-            migrationBuilder.DropForeignKey(
                 name: "FK_States_Countries_CountryId",
                 table: "States");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_TemporalOrders_AspNetUsers_UserId",
-                table: "TemporalOrders");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_TemporalOrders_Products_ProductId",
-                table: "TemporalOrders");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
@@ -350,52 +222,6 @@ namespace PGCELL.Backend.Migrations
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_OrderDetails_Orders_OrderId",
-                table: "OrderDetails",
-                column: "OrderId",
-                principalTable: "Orders",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_OrderDetails_Products_ProductId",
-                table: "OrderDetails",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Orders_AspNetUsers_UserId",
-                table: "Orders",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ProductCategories_Categories_CategoryId",
-                table: "ProductCategories",
-                column: "CategoryId",
-                principalTable: "Categories",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ProductCategories_Products_ProductId",
-                table: "ProductCategories",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ProductImages_Products_ProductId",
-                table: "ProductImages",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_States_Countries_CountryId",
@@ -405,20 +231,7 @@ namespace PGCELL.Backend.Migrations
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_TemporalOrders_AspNetUsers_UserId",
-                table: "TemporalOrders",
-                column: "UserId",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_TemporalOrders_Products_ProductId",
-                table: "TemporalOrders",
-                column: "ProductId",
-                principalTable: "Products",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+           
         }
     }
 }

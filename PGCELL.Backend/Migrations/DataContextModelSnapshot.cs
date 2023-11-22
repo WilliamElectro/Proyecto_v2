@@ -155,27 +155,7 @@ namespace PGCELL.Backend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("Categories");
-                });
-
+          
             modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
                     b.Property<int>("Id")
@@ -284,139 +264,7 @@ namespace PGCELL.Backend.Migrations
                     b.ToTable("Novelties");
                 });
 
-            modelBuilder.Entity("PGCELL.Shared.Entites.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OrderStatus")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderDetails");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<float>("Stock")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.ProductCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductCategories");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImages");
-                });
-
+            
             modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
                     b.Property<int>("Id")
@@ -439,35 +287,6 @@ namespace PGCELL.Backend.Migrations
                         .IsUnique();
 
                     b.ToTable("States");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.TemporalOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("TemporalOrders");
                 });
 
             modelBuilder.Entity("PGCELL.Shared.Entites.TypeNovelty", b =>
@@ -691,65 +510,6 @@ namespace PGCELL.Backend.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("PGCELL.Shared.Entites.Order", b =>
-                {
-                    b.HasOne("PGCELL.Shared.Entites.User", "User")
-                        .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.OrderDetail", b =>
-                {
-                    b.HasOne("PGCELL.Shared.Entites.Order", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.ProductCategory", b =>
-                {
-                    b.HasOne("PGCELL.Shared.Entites.Category", "Category")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
-                        .WithMany("ProductCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.ProductImage", b =>
-                {
-                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
                 {
                     b.HasOne("PGCELL.Shared.Entites.Country", "Country")
@@ -759,24 +519,6 @@ namespace PGCELL.Backend.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.TemporalOrder", b =>
-                {
-                    b.HasOne("PGCELL.Shared.Entites.Product", "Product")
-                        .WithMany("TemporalOrders")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("PGCELL.Shared.Entites.User", "User")
-                        .WithMany("TemporalOrders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("PGCELL.Shared.Entites.User", b =>
@@ -790,11 +532,6 @@ namespace PGCELL.Backend.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("PGCELL.Shared.Entites.Category", b =>
-                {
-                    b.Navigation("ProductCategories");
-                });
-
             modelBuilder.Entity("PGCELL.Shared.Entites.City", b =>
                 {
                     b.Navigation("Users");
@@ -803,22 +540,6 @@ namespace PGCELL.Backend.Migrations
             modelBuilder.Entity("PGCELL.Shared.Entites.Country", b =>
                 {
                     b.Navigation("States");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.Order", b =>
-                {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("PGCELL.Shared.Entites.Product", b =>
-                {
-                    b.Navigation("OrderDetails");
-
-                    b.Navigation("ProductCategories");
-
-                    b.Navigation("ProductImages");
-
-                    b.Navigation("TemporalOrders");
                 });
 
             modelBuilder.Entity("PGCELL.Shared.Entites.State", b =>
@@ -832,7 +553,7 @@ namespace PGCELL.Backend.Migrations
 
                     b.Navigation("TemporalOrders");
                 });
-#pragma warning restore 612, 618
+
         }
     }
 }
