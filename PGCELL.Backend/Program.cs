@@ -83,6 +83,7 @@ internal class Program
         builder.Services.AddScoped<ITypeNoveltiesRepository, TypeNoveltiesRepository>();
         builder.Services.AddScoped<IWorkersRepository, WorkersRepository>();
         builder.Services.AddScoped<IContractsRepository, ContractsRepository>();
+        builder.Services.AddScoped<IWorkSchedulesRepository, WorkSchedulesRepository>();
 
 
         builder.Services.AddScoped<ICategoriesUnitOfWork, CategoriesUnitOfWork>();
@@ -98,6 +99,7 @@ internal class Program
         builder.Services.AddScoped<ITypeNoveltiesUnitOfWork, TypeNoveltiesUnitOfWork>();
         builder.Services.AddScoped<IWorkersUnitOfWork, WorkersUnitOfWork>();
         builder.Services.AddScoped<IContractsUnitOfWork, ContractsUnitOfWork>();
+        builder.Services.AddScoped<IWorkSchedulesUnitOfWork, WorkSchedulesUnitOfWork>();
 
         builder.Services.AddTransient<SeedDb>();
         builder.Services.AddScoped<IApiService, ApiService>();
