@@ -42,7 +42,7 @@ namespace PGCELL.Backend.Data
             await CheckTypeNoveltyAsync();
             await CheckNoveltyAsync();
             await CheckContractAsync();
-            await CheckModalitiesAsync()
+            await CheckModalitiesAsync();
 
         }
 
