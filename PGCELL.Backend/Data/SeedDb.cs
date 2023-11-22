@@ -42,6 +42,7 @@ namespace PGCELL.Backend.Data
             await CheckTypeNoveltyAsync();
             await CheckNoveltyAsync();
             await CheckContractAsync();
+            await CheckModalitiesAsync()
 
         }
 
@@ -166,6 +167,25 @@ namespace PGCELL.Backend.Data
                 _context.Novelties.Add(new Novelty { Name = "Contrato de Vanessa" });
                 _context.Novelties.Add(new Novelty { Name = "Contrato de Ricardo" });
                 _context.Novelties.Add(new Novelty { Name = "Contrato de Hector" });
+
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckModalitiesAsync()
+        {
+            if (!_context.Modalities.Any())
+            {
+                _context.Modalities.Add(new Modality { Name = "Contrato por obra o labor" });
+                _context.Modalities.Add(new Modality { Name = "Contrato de trabajo a término fijo" });
+                _context.Modalities.Add(new Modality { Name = "Contrato de trabajo a término indefinido" });
+                _context.Modalities.Add(new Modality { Name = "Contrato de aprendizaje" });
+                _context.Modalities.Add(new Modality { Name = "Contrato temporal, ocasional o accidental" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 1 contrato por hora" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 2 contrato por semana" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 3 contrato por mes" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 4 contrato por minutos" });
+                _context.Modalities.Add(new Modality { Name = "Modalidad futura 5 contrato por terceros" });
 
                 await _context.SaveChangesAsync();
             }
