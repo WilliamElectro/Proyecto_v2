@@ -29,7 +29,7 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var comboData = new List<TypeNovelty>
             {
-                new TypeNovelty {  Id = 1, Name = "Admin" }
+                new TypeNovelty {  Id = 1, Name = "Vacaciones" }
             };
             _mockTypeNoveltyUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
 
