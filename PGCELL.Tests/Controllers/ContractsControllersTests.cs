@@ -9,29 +9,29 @@ using PGCELL.Shared.Responses;
 namespace PGCELL.Tests.Controllers
 {
     [TestClass]
-    public class CategoriesControllerTests
+    public class ContractsControllersTests
     {
-        private Mock<IGenericUnitOfWork<Category>> _mockGenericUnitOfWork = null!;
-        private Mock<ICategoriesUnitOfWork> _mockCategoriesUnitOfWork = null!;
-        private CategoriesController _controller = null!;
+        private Mock<IGenericUnitOfWork<Contract>> _mockGenericUnitOfWork = null!;
+        private Mock<IContractsUnitOfWork> _mockContractsUnitOfWork = null!;
+        private ContractsController _controller = null!;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockGenericUnitOfWork = new Mock<IGenericUnitOfWork<Category>>();
-            _mockCategoriesUnitOfWork = new Mock<ICategoriesUnitOfWork>();
-            _controller = new CategoriesController(_mockGenericUnitOfWork.Object, _mockCategoriesUnitOfWork.Object);
+            _mockGenericUnitOfWork = new Mock<IGenericUnitOfWork<Contract>>();
+            _mockContractsUnitOfWork = new Mock<IContractsUnitOfWork>();
+            _controller = new ContractsController(_mockGenericUnitOfWork.Object, _mockContractsUnitOfWork.Object);
         }
 
         [TestMethod]
         public async Task GetComboAsync_ReturnsOkObjectResult()
         {
             // Arrange
-            var comboData = new List<Category>
+            var comboData = new List<Contract>
             {
-                new Category {  Id = 1, Name = "Some", ProductCategories = new List<ProductCategory>() }
+                new Contract {  Id = 1, Name = "Admin" }
             };
-            _mockCategoriesUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
+            _mockContractsUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
 
             // Act
             var result = await _controller.GetComboAsync();
@@ -40,8 +40,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(comboData, okResult!.Value);
-            Assert.AreEqual(comboData[0].ProductCategoriesNumber, 0);
-            _mockCategoriesUnitOfWork.Verify(x => x.GetComboAsync(), Times.Once());
+            _mockContractsUnitOfWork.Verify(x => x.GetComboAsync(), Times.Once());
         }
 
         [TestMethod]
@@ -49,8 +48,8 @@ namespace PGCELL.Tests.Controllers
         {
             // Arrange
             var pagination = new PaginationDTO();
-            var response = new Response<IEnumerable<Category>> { WasSuccess = true };
-            _mockCategoriesUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
+            var response = new Response<IEnumerable<Contract>> { WasSuccess = true };
+            _mockContractsUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
 
             // Act
             var result = await _controller.GetAsync(pagination);
@@ -59,7 +58,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(response.Result, okResult!.Value);
-            _mockCategoriesUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
+            _mockContractsUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -67,15 +66,15 @@ namespace PGCELL.Tests.Controllers
         {
             // Arrange
             var pagination = new PaginationDTO();
-            var response = new Response<IEnumerable<Category>> { WasSuccess = false };
-            _mockCategoriesUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
+            var response = new Response<IEnumerable<Contract>> { WasSuccess = false };
+            _mockContractsUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
 
             // Act
             var result = await _controller.GetAsync(pagination);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-            _mockCategoriesUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
+            _mockContractsUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -84,7 +83,7 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var pagination = new PaginationDTO();
             var action = new Response<int> { WasSuccess = true, Result = 5 };
-            _mockCategoriesUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
+            _mockContractsUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
 
             // Act
             var result = await _controller.GetPagesAsync(pagination);
@@ -93,7 +92,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(action.Result, okResult!.Value);
-            _mockCategoriesUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
+            _mockContractsUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -102,14 +101,14 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var pagination = new PaginationDTO();
             var action = new Response<int> { WasSuccess = false };
-            _mockCategoriesUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
+            _mockContractsUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
 
             // Act
             var result = await _controller.GetPagesAsync(pagination);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-            _mockCategoriesUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
+            _mockContractsUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
         }
     }
 }
