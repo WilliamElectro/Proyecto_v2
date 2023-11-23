@@ -2,11 +2,40 @@
 
 <EditForm EditContext="editContext" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
+
     <div class="mb-3">
-        <label>Trabajador:</label>
+        <label>Documento:</label>
         <div>
-            <InputText class="form-control" @bind-Value="@Worker.Name" />
-            <ValidationMessage For="@(() => Worker.Name)" />
+            <InputText class="form-control" @bind-Value="@Worker.Document" />
+            <ValidationMessage For="@(() => Worker.Document)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Nombres:</label>
+        <div>
+            <InputText class="form-control" @bind-Value="@Worker.FirstName" />
+            <ValidationMessage For="@(() => Worker.FirstName)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Apellidos:</label>
+        <div>
+            <InputText class="form-control" @bind-Value="@Worker.LastName" />
+            <ValidationMessage For="@(() => Worker.LastName)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Modalidad:</label>
+        <div>
+            <select class="form-control" @onchange="UpdateSelectedModality">
+                @foreach (var modality in AvailableModalities)
+                {
+                    <option value="@modality.Id" selected="@(modality.Id == Worker.Modality?.Id)">@modality.Name</option>
+                }
+            </select>
         </div>
     </div>
 

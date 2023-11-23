@@ -14,12 +14,15 @@ namespace PGCELL.Frontend.Pages.Workers
 
         protected override void OnInitialized()
         {
-            editContext = new(Worker);
-        }
+            editContext = new(Worker);            
+        }        
 
         [EditorRequired]
         [Parameter]
         public Worker Worker { get; set; } = null!;
+
+        [Parameter]
+        public List<Modality> AvailableModalities { get; set; }
 
         [EditorRequired]
         [Parameter]
@@ -61,6 +64,12 @@ namespace PGCELL.Frontend.Pages.Workers
             }
 
             context.PreventNavigation();
+        }
+
+        private void UpdateSelectedModality(ChangeEventArgs e)
+        {
+            var selectedModalityId = Convert.ToInt32(e.Value);
+            Worker.Modality = AvailableModalities.FirstOrDefault(m => m.Id == selectedModalityId);
         }
     }
 }

@@ -1,0 +1,52 @@
+﻿@page "/sendMessage"
+
+<div class="card">
+    <div class="card-header">
+        <span>
+            <i class="oi oi-envelope-closed" /> Enviar Mensaje
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="mb-2">
+            <label for="recipient">Destinatario:</label>
+            <input type="text" class="form-control" id="recipient" placeholder="Correo del destinatario" @bind-value="RecipientEmail" />
+        </div>
+        <div class="mb-2">
+            <label for="subject">Asunto:</label>
+            <input type="text" class="form-control" id="subject" placeholder="Asunto del mensaje" @bind-value="Subject" />
+        </div>
+        <div class="mb-2">
+            <label for="messageBody">Mensaje:</label>
+            <!--<textarea class="form-control" id="messageBody" rows="5" placeholder="Cuerpo del mensaje" @bind-value="MessageBody"></textarea>-->
+        </div>
+        <button type="button" class="btn btn-primary" @onclick="SendEmail">Enviar Mensaje</button>
+    </div>
+</div>
+
+@code {
+    private string RecipientEmail { get; set; }
+    private string Subject { get; set; }
+    private string MessageBody { get; set; }
+
+    private async Task SendEmail()
+    {
+        // Lógica para enviar el correo electrónico
+        // Aquí puedes implementar la lógica para enviar el correo utilizando la plataforma o servicio de correo que prefieras
+        // Por ejemplo, puedes usar una librería de envío de correo electrónico como SendGrid o la funcionalidad proporcionada por tu backend
+
+        // Ejemplo de pseudocódigo para enviar el correo electrónico (reemplaza con la lógica real)
+        //var emailService = new EmailService(); // Reemplaza EmailService con la clase o servicio real para enviar correos
+        //var result = await emailService.SendAsync(RecipientEmail, Subject, MessageBody);
+
+        //if (result)
+        //{
+            // Mensaje de éxito o redirección a otra página
+            // Aquí puedes mostrar un mensaje de éxito o redireccionar a otra página después de enviar el correo
+        //}
+        //else
+        //{
+            // Manejo de errores o notificación al usuario
+            // Aquí puedes manejar errores que ocurran durante el envío del correo o notificar al usuario sobre un problema
+        //}
+    }
+}

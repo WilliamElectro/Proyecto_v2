@@ -9,29 +9,29 @@ using PGCELL.Shared.Responses;
 namespace PGCELL.Tests.Controllers
 {
     [TestClass]
-    public class WorkersControllerTests
+    public class WorkSchedulesControllerTests
     {
-        private Mock<IGenericUnitOfWork<Worker>> _mockGenericUnitOfWork = null!;
-        private Mock<IWorkersUnitOfWork> _mockWorkerUnitOfWork = null!;
-        private WorkersController _controller = null!;
+        private Mock<IGenericUnitOfWork<WorkSchedule>> _mockGenericUnitOfWork = null!;
+        private Mock<IWorkSchedulesUnitOfWork> _mockWorkSchedulesUnitOfWork = null!;
+        private WorkSchedulesController _controller = null!;
 
         [TestInitialize]
         public void Setup()
         {
-            _mockGenericUnitOfWork = new Mock<IGenericUnitOfWork<Worker>>();
-            _mockWorkerUnitOfWork = new Mock<IWorkersUnitOfWork>();
-            _controller = new WorkersController(_mockGenericUnitOfWork.Object, _mockWorkerUnitOfWork.Object);
+            _mockGenericUnitOfWork = new Mock<IGenericUnitOfWork<WorkSchedule>>();
+            _mockWorkSchedulesUnitOfWork = new Mock<IWorkSchedulesUnitOfWork>();
+            _controller = new WorkSchedulesController(_mockGenericUnitOfWork.Object, _mockWorkSchedulesUnitOfWork.Object);
         }
 
         [TestMethod]
         public async Task GetComboAsync_ReturnsOkObjectResult()
         {
             // Arrange
-            var comboData = new List<Worker>
+            var comboData = new List<WorkSchedule>
             {
-                new Worker {  Id = 1, FirstName = "Admin" }
+                new WorkSchedule {  Id = 1, Name = "Admin" }
             };
-            _mockWorkerUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
+            _mockWorkSchedulesUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
 
             // Act
             var result = await _controller.GetComboAsync();
@@ -40,7 +40,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(comboData, okResult!.Value);
-            _mockWorkerUnitOfWork.Verify(x => x.GetComboAsync(), Times.Once());
+            _mockWorkSchedulesUnitOfWork.Verify(x => x.GetComboAsync(), Times.Once());
         }
 
         [TestMethod]
@@ -48,8 +48,8 @@ namespace PGCELL.Tests.Controllers
         {
             // Arrange
             var pagination = new PaginationDTO();
-            var response = new Response<IEnumerable<Worker>> { WasSuccess = true };
-            _mockWorkerUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
+            var response = new Response<IEnumerable<WorkSchedule>> { WasSuccess = true };
+            _mockWorkSchedulesUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
 
             // Act
             var result = await _controller.GetAsync(pagination);
@@ -58,7 +58,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(response.Result, okResult!.Value);
-            _mockWorkerUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
+            _mockWorkSchedulesUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -66,15 +66,15 @@ namespace PGCELL.Tests.Controllers
         {
             // Arrange
             var pagination = new PaginationDTO();
-            var response = new Response<IEnumerable<Worker>> { WasSuccess = false };
-            _mockWorkerUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
+            var response = new Response<IEnumerable<WorkSchedule>> { WasSuccess = false };
+            _mockWorkSchedulesUnitOfWork.Setup(x => x.GetAsync(pagination)).ReturnsAsync(response);
 
             // Act
             var result = await _controller.GetAsync(pagination);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-            _mockWorkerUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
+            _mockWorkSchedulesUnitOfWork.Verify(x => x.GetAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -83,7 +83,7 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var pagination = new PaginationDTO();
             var action = new Response<int> { WasSuccess = true, Result = 5 };
-            _mockWorkerUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
+            _mockWorkSchedulesUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
 
             // Act
             var result = await _controller.GetPagesAsync(pagination);
@@ -92,7 +92,7 @@ namespace PGCELL.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             var okResult = result as OkObjectResult;
             Assert.AreEqual(action.Result, okResult!.Value);
-            _mockWorkerUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
+            _mockWorkSchedulesUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
         }
 
         [TestMethod]
@@ -101,14 +101,14 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var pagination = new PaginationDTO();
             var action = new Response<int> { WasSuccess = false };
-            _mockWorkerUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
+            _mockWorkSchedulesUnitOfWork.Setup(x => x.GetTotalPagesAsync(pagination)).ReturnsAsync(action);
 
             // Act
             var result = await _controller.GetPagesAsync(pagination);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(BadRequestResult));
-            _mockWorkerUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
+            _mockWorkSchedulesUnitOfWork.Verify(x => x.GetTotalPagesAsync(pagination), Times.Once());
         }
     }
 }
