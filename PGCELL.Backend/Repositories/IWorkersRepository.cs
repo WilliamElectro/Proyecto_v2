@@ -8,6 +8,8 @@ namespace PGCELL.Backend.Repositories
 {
     public interface IWorkersRepository
     {
+        Task<Response<Worker>> GetAsync(int id);
+
         Task<Response<IEnumerable<Worker>>> GetAsync(PaginationDTO pagination);
 
         Task<Response<int>> GetTotalPagesAsync(PaginationDTO pagination);

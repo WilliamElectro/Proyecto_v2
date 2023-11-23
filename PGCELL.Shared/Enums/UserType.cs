@@ -8,6 +8,9 @@ namespace PGCELL.Shared.Enums
         Admin,
 
         [Description("Usuario")]
-        User
+        User,
+
+        [Description("Tecnico")]
+        Tecnico
     }
 }

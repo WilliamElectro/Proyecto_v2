@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using PGCELL.Frontend.Repositories;
 using PGCELL.Shared.Entites;
-using System.Threading.Tasks;
 
 namespace PGCELL.Frontend.Pages.Workers
 {
@@ -15,6 +14,12 @@ namespace PGCELL.Frontend.Pages.Workers
         [Inject] private NavigationManager navigationManager { get; set; } = null!;
         [Inject] private IRepository repository { get; set; } = null!;
         [Inject] private SweetAlertService sweetAlertService { get; set; } = null!;
+        
+        [Parameter]
+        public List<Modality> AvailableModalities { get; set; }
+
+        [Parameter]
+        public List<WorkSchedule> AvailableWorkerShedules { get; set; }
 
         private Worker worker = new();
         private WorkerForm? workerForm;

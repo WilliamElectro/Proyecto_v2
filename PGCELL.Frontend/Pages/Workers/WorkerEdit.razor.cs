@@ -7,6 +7,8 @@ using PGCELL.Frontend.Repositories;
 using PGCELL.Shared.Entites;
 using System.Threading.Tasks;
 using Blazored.Modal.Services;
+using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace PGCELL.Frontend.Pages.Workers
 {
@@ -26,9 +28,17 @@ namespace PGCELL.Frontend.Pages.Workers
         [Parameter]
         public int Id { get; set; }
 
+        [Parameter]
+        public List<Modality> AvailableModalities { get; set; }
+
+        [Parameter]
+        public List<WorkSchedule> AvailableWorkShedules { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             var responseHTTP = await repository.GetAsync<Worker>($"api/workers/{Id}");
+            //var propuesta = (from Worker in Worker.Proposals.Where(e => e.id == ID)
+            //var response = await repository.GetAsync<List<Worker>>(url);
 
             if (responseHTTP.Error)
             {
@@ -50,7 +60,7 @@ namespace PGCELL.Frontend.Pages.Workers
 
         private async Task EditAsync()
         {
-            var responseHTTP = await repository.PutAsync("api/workers", worker);
+             var responseHTTP = await repository.PutAsync("api/workers", worker);
 
             if (responseHTTP.Error)
             {

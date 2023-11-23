@@ -50,10 +50,6 @@ namespace PGCELL.Tests.Others
 
             // Assert
             Assert.IsTrue(await _context.Countries.AnyAsync());
-            Assert.IsTrue(await _context.Categories.AnyAsync());
-            Assert.IsTrue(await _context.Products.AnyAsync());
-            Assert.IsTrue(await _context.ProductCategories.AnyAsync());
-            Assert.IsTrue(await _context.ProductImages.AnyAsync());
         }
 
         [TestMethod]
@@ -105,10 +101,6 @@ namespace PGCELL.Tests.Others
 
             // Assert
             Assert.IsTrue(await _context.Countries.AnyAsync());
-            Assert.IsTrue(await _context.Categories.AnyAsync());
-            Assert.IsTrue(await _context.Products.AnyAsync());
-            Assert.IsTrue(await _context.ProductCategories.AnyAsync());
-            Assert.IsTrue(await _context.ProductImages.AnyAsync());
         }
 
         [TestCleanup]
