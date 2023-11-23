@@ -20,6 +20,7 @@ namespace PGCELL.Backend.Repositories
         {
             var worker = await _context.Workers
                 .Include(w => w.Modality)
+                .Include(w => w.WorkSchedule)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (worker == null)
@@ -42,6 +43,7 @@ namespace PGCELL.Backend.Repositories
         {
             var queryable = _context.Workers
                 .Include(w => w.Modality)
+                .Include(w => w.WorkSchedule)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(pagination.Filter))
@@ -70,6 +72,7 @@ namespace PGCELL.Backend.Repositories
         {
             var queryable = _context.Workers
                 .Include(w => w.Modality)
+                .Include(w => w.WorkSchedule)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(pagination.Filter))

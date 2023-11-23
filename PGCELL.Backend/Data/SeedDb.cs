@@ -33,7 +33,7 @@ namespace PGCELL.Backend.Data
             await CheckCountriesAsync2();
             await CheckRolesAsync();
             //await CheckUserAsync("0001", "Juan", "Zuluaga", "zulu@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "JuanZuluaga.jpg", UserType.Admin);
-            await CheckUserAsync("0001", "William", "Bohorquez", "williambohorquezgutierrez2@gmail.com", "320 476 3486", "Calle 1 Carrera 1", "bob.jpg", UserType.Admin);
+            await CheckUserAsync("0001", "William", "Bohorquez", "williambohorquezgutierrez2@gmail.com", "320 476 3486", "Calle 1 Carrera 1", "bob.jpg", UserType.User);
             await CheckUserAsync("0002", "Jenny", "Chavez", "jennycaro13@gmail.com", "320 456 6789", "Calle 40 Carrera 30", "selena.jpg", UserType.Admin);
             //await CheckUserAsync("0002", "Ledys", "Bedoya", "ledys@yopmail.com", "322 311 4620", "Calle Luna Calle Sol", "LedysBedoya.jpg", UserType.User);
             await CheckWorkSchedulesAsync();
@@ -62,15 +62,15 @@ namespace PGCELL.Backend.Data
             if (!_context.Workers.Any())
             {
                 _context.Workers.Add(new Worker { Document = "1075 1", FirstName = "William" , LastName = "Bohorquez"});
-                _context.Workers.Add(new Worker { Document = "1075 2", FirstName = "Sergio", LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 3", FirstName = "Jenny" , LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 4", FirstName = "Karen" , LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 5", FirstName = "Lucas" , LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 6", FirstName = "Luis", LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 7", FirstName = "Martha", LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 8", FirstName = "Miguel", LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 9", FirstName = "Patricia", LastName = "" });
-                _context.Workers.Add(new Worker { Document = "1075 10", FirstName = "Carmen", LastName = "" });
+                _context.Workers.Add(new Worker { Document = "1075 2", FirstName = "Sergio", LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 3", FirstName = "Jenny" , LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 4", FirstName = "Karen" , LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 5", FirstName = "Lucas" , LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 6", FirstName = "Luis", LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 7", FirstName = "Martha", LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 8", FirstName = "Miguel", LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 9", FirstName = "Patricia", LastName = "A" });
+                _context.Workers.Add(new Worker { Document = "1075 10", FirstName = "Carmen", LastName = "A" });
 
                 await _context.SaveChangesAsync();
             }
@@ -241,6 +241,7 @@ namespace PGCELL.Backend.Data
         {
             await _userHelper.CheckRoleAsync(UserType.Admin.ToString());
             await _userHelper.CheckRoleAsync(UserType.User.ToString());
+            await _userHelper.CheckRoleAsync(UserType.Tecnico.ToString());
         }
 
         private async Task CheckCountriesAsync()

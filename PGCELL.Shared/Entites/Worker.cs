@@ -23,6 +23,8 @@ namespace PGCELL.Shared.Entites
         public User? User { get; set; }
 
         public Modality? Modality { get; set; }
+
+        public WorkSchedule? WorkSchedule { get; set; }
     }
   
 }
