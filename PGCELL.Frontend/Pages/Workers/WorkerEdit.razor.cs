@@ -31,6 +31,9 @@ namespace PGCELL.Frontend.Pages.Workers
         [Parameter]
         public List<Modality> AvailableModalities { get; set; }
 
+        [Parameter]
+        public List<WorkSchedule> AvailableWorkShedules { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             var responseHTTP = await repository.GetAsync<Worker>($"api/workers/{Id}");

@@ -24,7 +24,11 @@ namespace PGCELL.Frontend.Pages.Workers
 
         [EditorRequired]
         [Parameter]
-        public List<Modality> AvailableModalities { get; set; } = new List<Modality>(); // Asegúrate de tener esta lista
+        public List<Modality> AvailableModalities { get; set; } = new List<Modality>();
+
+        [EditorRequired]
+        [Parameter]
+        public List<WorkSchedule> AvailableWorkShedules { get; set; } = new List<WorkSchedule>();
 
         //private int selectedModalityId; // Campo para almacenar el ID de la modalidad seleccionada
 
@@ -33,6 +37,7 @@ namespace PGCELL.Frontend.Pages.Workers
             await CheckIsAuthenticatedAsync();
             await LoadAsync();
             await LoadModalitiesAsync();
+            await LoadWorkSheduleAsync();
         }
 
         private async Task CheckIsAuthenticatedAsync()
@@ -54,6 +59,19 @@ namespace PGCELL.Frontend.Pages.Workers
             AvailableModalities = responseHttp.Response;
         }
 
+        private async Task LoadWorkSheduleAsync()
+        {
+            var responseHttp = await repository.GetAsync<List<WorkSchedule>>("/api/workSchedules/combo");
+            if (responseHttp.Error)
+            {
+                var message = await responseHttp.GetErrorMessageAsync();
+                await sweetAlertService.FireAsync("Error", message, SweetAlertIcon.Error);
+                return;
+            }
+
+            AvailableWorkShedules = responseHttp.Response;
+        }
+
         private async Task ShowModal(int id = 0, bool isEdit = false)
         {
             IModalReference modalReference;
@@ -65,12 +83,20 @@ namespace PGCELL.Frontend.Pages.Workers
                     new ModalParameters
                     {
                         { "Id", id },
-                        { "AvailableModalities", AvailableModalities }
+                        { "AvailableModalities", AvailableModalities },
+                        { "AvailableWorkShedules", AvailableWorkShedules }
                     });
             }
             else
             {                
                 modalReference = Modal.Show<WorkerCreate>(string.Empty, new ModalParameters().Add("AvailableModalities", AvailableModalities));
+                modalReference = Modal.Show<WorkerCreate>(
+                    string.Empty,
+                    new ModalParameters
+                    {
+                        { "AvailableModalities", AvailableModalities },
+                        { "AvailableWorkShedules", AvailableWorkShedules }
+                    });
             }
 
             var result = await modalReference.Result;
