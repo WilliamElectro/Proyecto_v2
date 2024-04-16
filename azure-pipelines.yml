@@ -1,0 +1,47 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+# Este script de Azure Pipelines está diseñado para construir y probar proyectos de ASP.NET Core que tienen como objetivo el .NET Framework completo.
+# Utiliza diversas tareas para llevar a cabo diferentes acciones, como la instalación de herramientas NuGet, la restauración de paquetes NuGet necesarios para el proyecto y la compilación del proyecto utilizando MSBuild.
+# También realiza pruebas unitarias utilizando VSTest.
+
+# El script está configurado para desencadenar automáticamente cuando se realicen cambios en la rama principal (main) del repositorio.
+# Utiliza una máquina virtual con la imagen de Windows más reciente para ejecutar las tareas de construcción y prueba.
+
+# Algunas de las configuraciones y acciones específicas que realiza este script incluyen:
+# - Instalación de herramientas NuGet necesarias.
+# - Restauración de los paquetes NuGet especificados en la solución del proyecto.
+# - Compilación del proyecto utilizando MSBuild con configuraciones específicas, como la generación de un paquete de implementación web y la especificación de la ubicación del paquete generado.
+# - Ejecución de pruebas unitarias utilizando VSTest, con la plataforma y la configuración de compilación especificadas.
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
