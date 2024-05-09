@@ -21,6 +21,9 @@ namespace PGCELL.Frontend.Pages.Workers
         [Parameter]
         public Worker Worker { get; set; } = null!;
 
+        /**[Parameter]
+        public List<User> AvailableUsers { get; set; }**/
+
         [Parameter]
         public List<Modality> AvailableModalities { get; set; }
 
@@ -68,6 +71,12 @@ namespace PGCELL.Frontend.Pages.Workers
 
             context.PreventNavigation();
         }
+
+        /**private void UpdateUser(ChangeEventArgs e)
+        {
+            var selectedUserId = Convert.ToInt32(e.Value);
+            Worker.User = AvailableUsers.FirstOrDefault(u => u.Document == selectedUserId.ToString());
+        }**/
 
         private void UpdateSelectedModality(ChangeEventArgs e)
         {

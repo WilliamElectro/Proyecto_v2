@@ -29,7 +29,7 @@ namespace PGCELL.Tests.Controllers
             // Arrange
             var comboData = new List<WorkSchedule>
             {
-                new WorkSchedule {  Id = 1, Name = "Admin" }
+                new WorkSchedule {  Id = 1, Name = "Diurno" }
             };
             _mockWorkSchedulesUnitOfWork.Setup(x => x.GetComboAsync()).ReturnsAsync(comboData);
 

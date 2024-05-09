@@ -20,9 +20,6 @@ namespace PGCELL.Backend.UnitsOfWork
 
         public override async Task<Response<IEnumerable<Worker>>> GetAsync(PaginationDTO pagination) => await _workersRepository.GetAsync(pagination);
 
-        // Aquí deberías implementar los métodos específicos para la entidad Worker
-        // Por ejemplo:
-
         public async Task<IEnumerable<Worker>> GetComboAsync() => await _workersRepository.GetComboAsync();
 
         public override async Task<Response<int>> GetTotalPagesAsync(PaginationDTO pagination) => await _workersRepository.GetTotalPagesAsync(pagination);

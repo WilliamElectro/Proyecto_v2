@@ -28,6 +28,26 @@
     </div>
 
     <div class="mb-3">
+        <label>E-Mail app:</label>
+        <div>
+            <InputText class="form-control" @bind-Value="@Worker.Email" />
+            <ValidationMessage For="@(() => Worker.Email)" />
+        </div>
+    </div>
+
+    <!--<div class="mb-3">
+        <label>Usuario:</label>
+        <div>
+            <select class="form-control" @onchange="UpdateUser">
+                @foreach (var user in AvailableUsers)
+                {
+                    <option value="@user.Document" selected="@(user.Document == Worker.User?.Document)">@user.FullName</option>
+                }
+            </select>
+        </div>
+    </div>-->
+
+    <div class="mb-3">
         <label>Modalidad:</label>
         <div>
             <select class="form-control" @onchange="UpdateSelectedModality">

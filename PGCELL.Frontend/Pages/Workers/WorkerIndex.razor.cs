@@ -89,7 +89,7 @@ namespace PGCELL.Frontend.Pages.Workers
             }
             else
             {                
-                modalReference = Modal.Show<WorkerCreate>(string.Empty, new ModalParameters().Add("AvailableModalities", AvailableModalities));
+                //modalReference = Modal.Show<WorkerCreate>(string.Empty, new ModalParameters().Add("AvailableModalities", AvailableModalities));
                 modalReference = Modal.Show<WorkerCreate>(
                     string.Empty,
                     new ModalParameters

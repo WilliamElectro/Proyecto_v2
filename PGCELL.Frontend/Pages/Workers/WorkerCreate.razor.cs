@@ -19,7 +19,7 @@ namespace PGCELL.Frontend.Pages.Workers
         public List<Modality> AvailableModalities { get; set; }
 
         [Parameter]
-        public List<WorkSchedule> AvailableWorkerShedules { get; set; }
+        public List<WorkSchedule> AvailableWorkShedules { get; set; }
 
         private Worker worker = new();
         private WorkerForm? workerForm;

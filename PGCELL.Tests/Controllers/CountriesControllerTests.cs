@@ -27,7 +27,7 @@ namespace PGCELL.Tests.Controllers
         public async Task GetComboAsync_ShouldReturnOk()
         {
             // Arrange
-            var response = new List<Country> { new Country { Id = 1, Name = "Country" } };
+            var response = new List<Country> { new Country { Id = 1, Name = "Colombia" } };
             _mockCountriesUnitOfWork.Setup(x => x.GetComboAsync())
                 .ReturnsAsync(response);
 
@@ -48,8 +48,8 @@ namespace PGCELL.Tests.Controllers
             var pagination = new PaginationDTO();
             var countries = new List<Country>
             {
-                new Country { Id = 1, Name = "Country1" },
-                new Country { Id = 2, Name = "Country2" }
+                new Country { Id = 1, Name = "Colombia" },
+                new Country { Id = 2, Name = "Argentina" }
             };
             var response = new Response<IEnumerable<Country>> { WasSuccess = true, Result = countries };
             _mockCountriesUnitOfWork.Setup(x => x.GetAsync(pagination))
