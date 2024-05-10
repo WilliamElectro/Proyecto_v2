@@ -5,15 +5,14 @@
       "connectionId": "ConnectionStrings:LocalConnection",
       "dynamicId": null
     },
-    "mssql2": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:LocalConnection",
-      "dynamicId": null
-    },
     "storage1": {
       "type": "storage",
       "connectionId": "ConnectionStrings:AzureStorage",
       "dynamicId": null
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:AzureConnection"
     }
   }
 }
