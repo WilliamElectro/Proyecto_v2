@@ -36,7 +36,7 @@
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('PGCELL.Backend_db', subscription().subscriptionId)))]",
+      "name": "[concat(parameters('resourceGroupName'), 'Deployment', uniqueString(concat('PGCELL.Backend_db.2', subscription().subscriptionId)))]",
       "resourceGroup": "[parameters('resourceGroupName')]",
       "apiVersion": "2019-10-01",
       "dependsOn": [
@@ -57,14 +57,13 @@
             },
             {
               "sku": {
-                "name": "HS_Gen5",
-                "tier": "Hyperscale",
-                "family": "Gen5",
-                "capacity": 2
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 10
               },
-              "kind": "v12.0,user,vcore,hyperscale",
+              "kind": "v12.0,user",
               "location": "[parameters('resourceLocation')]",
-              "name": "pgcelldbserver/PGCELL.Backend_db",
+              "name": "pgcelldbserver/PGCELL.Backend_db.2",
               "type": "Microsoft.Sql/servers/databases",
               "apiVersion": "2017-10-01-preview",
               "dependsOn": [

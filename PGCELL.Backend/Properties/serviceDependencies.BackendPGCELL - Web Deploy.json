@@ -1,18 +1,18 @@
 {
   "dependencies": {
-    "mssql1": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/BackendPGCELL/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsLocalConnection_35DFD0BC05",
-      "secretStore": "AzureAppSettings",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/pgcelldbserver/databases/PGCELL.Backend_db",
-      "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:LocalConnection"
-    },
     "storage2": {
       "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/BackendPGCELL/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzureStorage_08234B1426, /subscriptions/1f479ae6-4f14-48c7-aa18-b5404f20de25/resourceGroups/GCEEL/providers/Microsoft.Web/sites/BackendPGCELL/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsAzureStorage_FA65721430",
       "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/pgcellstorage",
       "type": "storage.azure",
       "connectionId": "ConnectionStrings:AzureStorage"
+    },
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/BackendPGCELL/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsLocalConnection_35DFD0BC05",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/pgcelldbserver/databases/PGCELL.Backend_db.2",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:LocalConnection"
     }
   }
 }

@@ -9,13 +9,13 @@
       "type": "mssql",
       "connectionId": "ConnectionStrings:AzureConnection"
     },
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:LocalConnection"
-    },
     "storage2": {
       "type": "storage",
       "connectionId": "ConnectionStrings:AzureStorage"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:LocalConnection"
     }
   }
 }
