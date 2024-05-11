@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "PGCELLFrontend2024",
+      "defaultValue": "PGCELLFrontend",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }
