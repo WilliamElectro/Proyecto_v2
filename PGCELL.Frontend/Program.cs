@@ -15,7 +15,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 // TODO: To change enviroments
 //var urlBack = "{Your URL}";
-var urlBack = "https://pgcellbackend2024.azurewebsites.net";
+var urlBack = "https://backendpgcell.azurewebsites.net/";
 
 builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(urlBack) });
 builder.Services.AddScoped<IRepository, Repository>();

@@ -1,10 +1,5 @@
 {
   "dependencies": {
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:LocalConnection",
-      "dynamicId": null
-    },
     "storage1": {
       "type": "storage",
       "connectionId": "ConnectionStrings:AzureStorage",
@@ -13,6 +8,14 @@
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:AzureConnection"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:LocalConnection"
+    },
+    "storage2": {
+      "type": "storage",
+      "connectionId": "ConnectionStrings:AzureStorage"
     }
   }
 }

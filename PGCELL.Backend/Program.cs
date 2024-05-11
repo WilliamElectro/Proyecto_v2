@@ -60,7 +60,7 @@ internal class Program
                 });
         });
 
-        builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("name=AzureConnection"));
+        builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration["ConnectionStrings:AzureConnection"]));
         builder.Services.AddScoped<IMailHelper, MailHelper>();
         builder.Services.AddScoped<ISmtpClient, SmtpClientWrapper>();
         builder.Services.AddScoped<HttpClient>();
@@ -143,7 +143,7 @@ internal class Program
             }
         }
 
-        if (app.Environment.IsDevelopment())
+        if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
