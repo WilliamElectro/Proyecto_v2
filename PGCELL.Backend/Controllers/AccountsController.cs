@@ -125,7 +125,30 @@ namespace PGCELL.Backend.Controllers
             return BadRequest("Email o contraseña incorrectos.");
         }
 
-        [HttpPut]
+        [HttpPost("ObtainMobileAppTokenAsync")]
+        public async Task<IActionResult> ObtainMobileAppTokenAsync([FromBody] LoginDTO model)
+        {
+            var user = await _userHelper.GetUserAsync(model.Email);
+            if (user == null)
+            {
+                return BadRequest("El correo electrónico no está registrado.");
+            }
+
+            // Decodificar la contraseña desde Base64
+            var base64EncodedPassword = model.Password;
+            var decodedPasswordBytes = Convert.FromBase64String(base64EncodedPassword);
+            var decodedPassword = Encoding.UTF8.GetString(decodedPasswordBytes);
+
+            // Comparar la contraseña decodificada con el correo electrónico
+            if (decodedPassword == model.Email)
+            {
+                return Ok(BuildToken(user));
+            }
+
+            return BadRequest("Email o contraseña incorrectos.");
+        }
+
+            [HttpPut]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> PutAsync(User user)
         {
