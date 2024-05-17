@@ -28,6 +28,14 @@ namespace PGCELL.Backend.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("ActiveWorkers")]
+        public async Task<IActionResult> GetActiveWorkersAsync()
+        {
+            IEnumerable<Worker> listActiveWorkers = await _workerUnitOfWork.GetActiveWorkersAsync();
+            return Ok(listActiveWorkers);
+        }
+
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public override async Task<IActionResult> GetAsync(int id)
         {

@@ -12,5 +12,7 @@ namespace PGCELL.Backend.UnitsOfWork
         Task<Response<int>> GetTotalPagesAsync(PaginationDTO pagination);
 
         Task<IEnumerable<Worker>> GetComboAsync();
+
+        Task<IEnumerable<Worker>> GetActiveWorkersAsync();
     }
 }

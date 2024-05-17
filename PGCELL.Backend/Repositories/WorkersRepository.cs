@@ -88,5 +88,49 @@ namespace PGCELL.Backend.Repositories
                 Result = totalPages
             };
         }
+
+        public async Task<IEnumerable<Worker>> GetActiveWorkersAsync()
+        {
+            // Obtén la hora local
+            DateTime localTime = DateTime.Now;
+            TimeSpan currentTime = localTime.TimeOfDay;
+
+            // Define los segmentos horarios
+            TimeSpan morningStart = new TimeSpan(6, 0, 0); // 6:00 AM
+            TimeSpan morningEnd = new TimeSpan(21, 0, 0); // 9:00 PM
+            TimeSpan nightStart = new TimeSpan(21, 0, 1); // 9:00 PM + 1 segundo
+            TimeSpan nightEnd = new TimeSpan(5, 59, 59); // 5:59:59 AM del día siguiente
+
+            var workers = await _context.Workers
+                .Include(w => w.WorkSchedule)
+                .OrderBy(c => c.Document)
+                .ToListAsync();
+
+            var activeWorkers = workers.Where(worker =>
+            {   //TODO: añadir validaciones
+                if (worker.WorkSchedule == null)
+                {
+                    return false; // Si es nulo, no incluir al trabajador
+                }
+
+                var workScheduleName = worker.WorkSchedule.Name.ToLower();
+
+                if (currentTime >= morningStart && currentTime <= morningEnd)
+                {
+                    // Es horario de día (6:00 AM - 9:00 PM)
+                    // Implementa lógica específica para este segmento si es necesario
+                    return workScheduleName.Contains("diurno");
+                }
+                else if (currentTime >= nightStart || currentTime < nightEnd)
+                {
+                    // Es horario de noche (9:00 PM - 6:00 AM)
+                    // Implementa lógica específica para este segmento si es necesario
+                    return workScheduleName.Contains("nocturno");
+                }
+                return false;
+            });
+
+            return activeWorkers;
+        }
     }
 }

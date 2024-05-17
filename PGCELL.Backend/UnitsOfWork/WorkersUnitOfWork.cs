@@ -23,5 +23,7 @@ namespace PGCELL.Backend.UnitsOfWork
         public async Task<IEnumerable<Worker>> GetComboAsync() => await _workersRepository.GetComboAsync();
 
         public override async Task<Response<int>> GetTotalPagesAsync(PaginationDTO pagination) => await _workersRepository.GetTotalPagesAsync(pagination);
+
+        public async Task<IEnumerable<Worker>> GetActiveWorkersAsync() => await _workersRepository.GetActiveWorkersAsync();
     }
 }
