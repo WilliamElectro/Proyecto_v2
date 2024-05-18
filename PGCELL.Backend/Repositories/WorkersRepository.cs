@@ -121,7 +121,7 @@ namespace PGCELL.Backend.Repositories
                     // Implementa lógica específica para este segmento si es necesario
                     return workScheduleName.Contains("diurno");
                 }
-                else if (currentTime >= nightStart && currentTime < nightEnd)
+                else if ((currentTime >= nightStart && currentTime <= TimeSpan.FromHours(24)) || (currentTime >= TimeSpan.Zero && currentTime <= nightEnd))
                 {
                     // Es horario de noche (9:00 PM - 6:00 AM)
                     // Implementa lógica específica para este segmento si es necesario
