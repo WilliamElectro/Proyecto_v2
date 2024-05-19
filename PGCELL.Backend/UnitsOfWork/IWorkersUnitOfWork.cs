@@ -13,6 +13,6 @@ namespace PGCELL.Backend.UnitsOfWork
 
         Task<IEnumerable<Worker>> GetComboAsync();
 
-        Task<IEnumerable<Worker>> GetActiveWorkersAsync();
+        Task<IEnumerable<Worker>> GetActiveWorkersAsync(string currentTimeString);
     }
 }

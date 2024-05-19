@@ -29,9 +29,9 @@ namespace PGCELL.Backend.Controllers
 
         [AllowAnonymous]
         [HttpGet("ActiveWorkers")]
-        public async Task<IActionResult> GetActiveWorkersAsync()
+        public async Task<IActionResult> GetActiveWorkersAsync(string currentTimeString)
         {
-            IEnumerable<Worker> listActiveWorkers = await _workerUnitOfWork.GetActiveWorkersAsync();
+            IEnumerable<Worker> listActiveWorkers = await _workerUnitOfWork.GetActiveWorkersAsync(currentTimeString);
             return Ok(listActiveWorkers);
         }
 

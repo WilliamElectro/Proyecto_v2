@@ -89,11 +89,10 @@ namespace PGCELL.Backend.Repositories
             };
         }
 
-        public async Task<IEnumerable<Worker>> GetActiveWorkersAsync()
+        public async Task<IEnumerable<Worker>> GetActiveWorkersAsync(string currentTimeString)
         {
-            // Obtén la hora local
-            DateTime localTime = DateTime.Now;
-            TimeSpan currentTime = localTime.TimeOfDay;
+            // Convertir la cadena de hora a TimeSpan
+            TimeSpan currentTime = TimeSpan.Parse(currentTimeString);
 
             // Define los segmentos horarios
             TimeSpan morningStart = new TimeSpan(6, 0, 0); // 6:00 AM
